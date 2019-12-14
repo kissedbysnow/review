@@ -1,4 +1,9 @@
 # review
+
+通过 Typora 加载 md 文档，以获得最佳阅读体验。
+
+Typora下载连接：https://www.typora.io/
+
 ## Git 的使用说明：
 
 - 工作区->暂存区：`git add .`
