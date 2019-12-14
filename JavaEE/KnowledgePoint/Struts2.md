@@ -29,3 +29,26 @@ Struts2的配置文件有两种：
 3. **Action** 通过配置文件中的信息找到对应的 **Action** 类，创建 **Action** 对象并调用其 **execute()** 方法
 4. 调用 **Action** 前后，涉及相关拦截器的调用。拦截器链自动对请求应用通用功能
 5. 一旦 **Action** 执行完毕，找到 **execute()** 方法返回值对应的结果
+
+## Strust2 深入
+
+配置常量的方式：
+
+- struts.xml
+- struts.properties
+- web.xml
+
+![Strust2常量加载与覆盖顺序](./Strust2常量加载与覆盖顺序.png)
+
+**struts.xml** 中配置了一个常量A，**web.xml** 中也配置了常量A，那么先加载 **struts.xml**，即 **web.xml** 会覆盖 **struts.xml**
+
+配置常量的代码：
+
+```xml
+<struts>
+    <constant name="" value=""/>
+</struts>
+```
+
+
+
