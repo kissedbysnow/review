@@ -44,11 +44,73 @@ Struts2的配置文件有两种：
 
 配置常量的代码：
 
+- struts.xml
+
 ```xml
 <struts>
     <constant name="" value=""/>
 </struts>
 ```
 
+- struts.properties
 
+```properties
+key=value
+```
+
+#### 3.1.3 命名空间配置
+
+目的：避免同名 <u>**Action**</u> 之间的冲突
+
+- struts.xml:
+
+```xml
+<struts>
+	<package name="p1" extends="struts-default" namespace="/admin">
+    	<action name="login" class="">
+        	<result name="error">/error.jsp</result>
+            <result>/success.jsp</result>
+        </action>
+    </package>
+</struts>
+```
+
+struts2 搜索 <u>**Action**</u> 的顺序：
+
+1. 查找指定命名空间下的 <u>**Action**</u> ，如果找到则执行。
+2. 如果找不到，则转入到默认命名空间中查找 <u>**Action**</u> ，找到则执行。
+3. 如果还找不到 <u>**Action**</u> ，则 Struts2 将报错。
+
+### 3.2 Action 详解（很重要）
+
+1. 对于使用 Struts2 框架开发的应用而言，<u>**Action**</u> 是应用的核心,每个 **Action**类就是一个**工作单元**,包含了对用户**请求的处理逻辑**,因此 <u>**Action**</u> 也被称为**业务控制器**。
+2. 在开发过程中，开发者需要根据处理逻辑的不同写出相应的 <u>**Action**</u> 类,并在 struts.xml 文件中配置好每个 <u>**Action**</u> 类。
+
+#### 3.2.1 Action 实现
+
+- POJO 实现方式
+
+  - ```java
+    public class POJOAction{
+      private String name;
+      
+      public String getName(){
+          return name;
+      }
+      public void setName(String name){
+          this.name=name;
+      }
+      
+      public String execute(){
+          // 略
+          return "OK";
+      }
+    }
+    ```
+    
+  - POJO 实现方式：就是一个简单的 **JavaBean**，每个属性对应 **get**/**set** 方法，并有 **execute()** 方法，其返回字符串，Struts2 框架对该字符串进行判断，从而转发到正确的界面用于响应用户的请求。
+
+- 实现 <u>**Action**</u> 接口
+
+- 继承 **<u>Action</u>Support **类
 
