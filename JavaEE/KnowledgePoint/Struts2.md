@@ -112,5 +112,161 @@ struts2 搜索 <u>**Action**</u> 的顺序：
 
 - 实现 <u>**Action**</u> 接口
 
-- 继承 **<u>Action</u>Support **类
+  - ```java
+    public interface Action{
+        //定义静态常量
+        public static final String SUCCESS = "success";
+        public static final String ERROR = "error";
+        
+        //execute 方法
+        public String execute() throws Exception;
+    }
+    ```
+
+  - 该结构提供了一个开发 <u>**Action**</u> 的通用规范（接口）。
+
+  - ```java
+    public class RegAction implements Action {
+        public String execute{
+            return SUCCESS;
+        }
+    }
+    ```
+
+- 继承 **<u>Action</u>Support** 类
+
+  - ```java
+    public class RegAction extends ActionSupport{
+        public String execute{
+            return SUCCESS;
+        }
+        public void validate(){//数据校验方法
+            if(this.name == null || this.name.equals("")){
+                addFieldError("name","用户名不能为空！");
+            }
+        }
+    } 
+    ```
+
+  - **<u>Action</u>Support** 类是 Struts2 缺省的 **<u>Action</u>** 处理类，当用户配置 **<u>Action</u>** 类没有指定 class 属性时，系统自动使用该类处理请求。
+
+  - validate() 在执行 execute() 之前运行，如果发现数据不符合条件，将执行 addFieldError()
+
+#### 3.2.2 Action 访问 ActionContext
+
+通过 **ActionContext** 来访问 **Servlet API** 。
+
+**ActionContext** 是 **<u>Action</u>** 执行的上下文，用于存放 **<u>Action</u>** 需要用到的 **Servlet** 相关对象（request、session...），每次执行 **<u>Action</u>** 之前都会为每个 **<u>Action</u>** 创建一个 **ActionContext** 对象的副本，在多线程环境下不会发生线程访问问题。
+
+**<u>Action</u>** 访问 **ActionContext** 的方式：
+
+```java
+public class CounterAction extends ActionSupport{
+    public String execute{
+        ActionContext ctx = ActionContext.getContext();
+        Integer counter = (Integer)ctx.getApplication().get("counter");
+        ctx.getApplication().put("counter",counter);
+        return SUCCESS;
+    }
+}
+```
+
+#### 3.2.3 Action 直接访问 Servlet API （问答or多选）
+
+```java
+public class CounterAction extends ActionSupport implements ServletRequestAware{
+    private HttpServletRequest request;
+    public void setServletRequest(HttpServletRequest request){
+        this.request=request;
+    }
+    public String execute{
+        HttpSession session = request.getSession();
+        Integer cout = (Integer)session.getAttribute("counter");
+        session.setAttribute("counter",cout);
+        return SUCCESS;
+    }
+}
+```
+
+#### 3.2.5 动态方法调用
+
+DMI（Dynamic Method Invocation，动态方法调用）
+
+actonName **!** methodName.action
+
+#### 3.2.6 通配符配置
+
+### 3.3 处理结果
+
+#### 3.3.2 result 配置
+
+- 局部结果：将 **\<result>** 元素作为 **\<action>** 元素的子元素配置
+
+  - ```xml
+    <action>
+    	<result name="" type="dispatcher">/xxx.jsp</result>
+    </action>
+    ```
+
+  - ```xml
+    <action>
+    	<result>/xxx.jsp</result>
+    </action>
+    ```
+
+- 全局结果：将 **\<result>** 元素作为 **\<global-results>** 元素的子元素配置
+
+  - ```xml
+    <global-results>
+    	<result>/xxx.jsp</result>
+    </global-results>
+    <action></action>
+    ```
+
+局部结果会覆盖全局结果。
+
+#### 3.3.3 result 类型
+
+- **dispatcher** 请求转发
+
+- **redirect** 重定向
+
+  - 会丢失所有的请求参数、请求属性，同时 Action 的处理结果也会丢失。
+  - 当时用 redirect 时，系统实际上会调用 HttpServletResponse 的 sendRedirect() 方法来重定向指定视图资源，这种重定向的效果就是产生一个新的请求。
+
+- **redirectAction**
+
+  - 当需要 Action 处理结束后，直接将请求重定向到另一个 Action 时，可以通过配置 redirectAction 结果类型来实现。
+
+    - actionName：该参数指定**重定向**的 Action 名称
+    - namespace：该参数指定**重定向**的 Action 所在的命名空间
+
+  - ```xml
+    <action>
+    	<result type="redirectAction">
+        	<param name="actionName">listuser</param>
+            <param name="namespace">/user</param>
+        </result>
+    </action>
+    ```
+
+#### 3.3.4 动态 result
+
+```xml
+<action name="*" class="" method="{1}">
+	<result>/{1}.jsp</result>
+</action>
+```
+
+### 3.4 异常处理
+
+#### 3.4.2 异常的配置
+
+Struts2 的异常处理是通过在 struts.xml 中配置 \<exception-mapping> 元素
+
+```xml
+<action>
+	<exception-mapping result="error" exception=""/>
+</action>
+```
 
