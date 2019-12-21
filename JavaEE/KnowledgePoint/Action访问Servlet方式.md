@@ -47,7 +47,7 @@ public class CounterAction extends ActionSupport{
 </head>
 <body>
 <form action="counter.action" method="post">
-       <h1><input type="sumbit" value="点击！"/>
+       <h1><input type="sumbit" value="点击！"/></h1>
        <!--输出点击次数-->
        <h1>点击按钮，已经点击了
        <!--通过表达式访问ServletContext对象的属性-->
@@ -81,3 +81,51 @@ public class CounterAction extends ActionSupport{
   - ServletResponseAware:可以直接访问服务器响应的HttpServletResponse对象
 - 示例3.11 以ServletRequestAware接口为例，通过获取HttpSession,来统计每个浏览器用户访问的次数。
   - 创建CounterAction类，继承ActionSupport,实现ServletRequestAware接口，其代码如下：
+```
+public class CounterAction extends ActionSupport implements ServletRequestAware{
+              private HttpServletRequest request;
+              //重写ServletRequestAware中的方法
+              public void setServletRequest(HttpServletRequest request){
+                             this.request=request;
+              }
+              public String execute(){
+              //获得Session对象
+              HttpSession session=request.getSession();
+              //取得每个浏览器的访问次数counter
+              Integer counter=(Integer)session.getAttribute("counter");
+              //如果counter的属性为null,设置counter属性为1
+                 if(counter==null){
+                          counter=1;       
+                 }else{
+                 //将counter加1
+                  counter++;
+                 }
+                 //将加1后的counter值保存在session中
+                 session.setAttribute("counter",counter);
+                 return SUCCESS;
+              }
+}
+```
+
+上述代码中，重写了setServletRequest()方法，该方法内有一个HttpServletRequest类的参数，该参数就代表了客户端的请求，Struts2会将当前请求对象传入setServletRequest()方法，这样CounterAction就可以访问到request对象了。通过request对象可以获得HttpSession对象。
+
+- counter.jsp页面更改后代码如下：
+```
+<%@page language="java" contentType="text/html;charset=UTF-8" pageeEncoding="UTF-8">
+<html>
+<head>
+<title>页面访问次数统计</title>
+</head>
+<body>
+<form action="counter.action" method="post">
+       <h1><input type="sumbit" value="点击！"/></h1>
+       <h3>点击按钮，已经点击了${empty session Scope.counter?0:sessionScope.counter}次</h3>
+ </form>
+ </body>
+ </html>
+       
+```
+
+对于其他访问Servlet API的接口实现方法与ServletRequestAware类似，都需要Action实现对应的接口，并重写方法。
+
+- 此外，Struts2框架还提供了一个ServletActionContext(辅助类)类用于在Action中直接访问Servlet API。
