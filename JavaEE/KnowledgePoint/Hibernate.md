@@ -1,6 +1,8 @@
-## 5.1 Hibernate 概述
+## 5 Hibernate 基础
 
-### ORM框架（对象关系映射~）
+### 5.1 Hibernate 概述
+
+#### 5.1.1 ORM框架（对象关系映射~）
 
 目前应用最为广泛的数据库是**关系**型数据库，存放的是**关系**型数据而非**对象**数据，带来了**对象**——**关系**之间数据映射的问题。
 
@@ -15,7 +17,7 @@ ORM框架的优点：
 - 提高访问数据库的性能，降低访问数据库的频率。			 	（性能）
 - 具有相对独立性，发生变化时不会影响上层的实现。		 	（独立性）
 
-### Hibernate 概述
+####  5.1.2 Hibernate 概述
 
 持久化对象（PO，Persistent Object）的作用：完成持久化操作，即通过该**对象**可对数据库以面向对象的方式进行操作。应用程序无需直接访问数据库，只需创建、修改或删除持久化对象，Hibernate 则会负责将这些操作转换成相应的对**数据库表**的操作。
 
@@ -40,4 +42,40 @@ PO = POJO + 映射文件
 
 - **query** n. 疑问，质问；疑问号 ；[计] 查询 vt. 询问；对……表示疑问 vi. 询问；表示怀疑
 
-- **criteria**  n. 标准，条件 
+- **criteria**  n. 标准，条件 
+
+### 5.2 Hibernate 应用开发方式
+
+三种开发方式：
+
+- 自**底**向**上** 数据库表 to 持久化类，根据数据库中**表的结构**生成对应的**映射文件**和**持久化类**
+- 自**顶**向**下** 持久化类 to 数据库表，先编写**持久化类**，然后编写**映射文件**，进而生成**数据库表结构**
+- 从中间出发，先编写映射文件，然后向上生成**持久化类**，向下生成**数据库表结构**
+
+Hibernate 应用程序的开发步骤：
+
+1. **配置** Hibernate **应用环境**，在应用中**添加** Hibernate 所需的 **jar 包**，并**创建** Hibernate **配置文件**
+2. **创建持久化类**及其 **ORM 映射文件**
+3. 利用 Configuration **装载配置**
+4. 利用 SessionFactory **创建 Session**
+5. 通过 Session 进行**持久化对象的管理**
+6. 利用 Transaction **管理事务**
+7. 利用 Query **进行 HQL 查询** or 利用 Criteria **实现条件查询**
+
+Hibernate 配置文件
+
+- hibernate.properties
+- hibernate.cfg.xml
+
+举例：
+
+```xml
+<hibernate-configuration>
+	<session-factory>
+    	<property name="connection.url">jabc:mysql://localhost:3306/xxx</property>
+        <mapping resource=""/>
+    </session-factory>
+</hibernate-configuration>
+```
+
+#### 5.3.2 创建持久化类及 ORM 映射文件
