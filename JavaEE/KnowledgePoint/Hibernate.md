@@ -79,3 +79,182 @@ Hibernate 配置文件
 ```
 
 #### 5.3.2 创建持久化类及 ORM 映射文件
+
+- 持久化类：实际上就是 **属性** + **有参构造** + **无参构造** + **set**&**get**方法
+```java
+public class Customer implements Serializable{
+    private Integer id;
+
+    public Customer(Integer id){
+    	this.id=id;
+    }
+    public Customer(){
+    }
+
+    //set&get方法
+}
+```
+
+- 映射文件：Customer.hbm.xml
+
+
+```xml
+<hibernate-mapping package="">
+	<class name="" table="">
+    	<id name="" column="">
+        	<generator class=""/>
+        </id>
+        <property name="" column="" type="" not-null="true"/>
+    </class>
+</hibernate-mapping>
+```
+
+#### 5.3.3 利用 Configuration 装载配置
+
+创建 Configuration 对象：
+
+```java
+Configuration configuration = new Configuration();//实例化
+configuration.configure("/hibernate.cfg.xml");//加载配置文件
+```
+
+1. Configuration 的作用是读取配置文件并创建 SessionFactory 对象。
+2. 通常一个应用程序会创建一个 Configuration 对象，然后再建立一个唯一的 SessionFactory 实例。
+3. 这意味着 Configuration 只存在于系统的初始化阶段，然后所有持久化操作都通过 SessionFactory 实例来完成。
+
+#### 5.3.4 利用 SessionFactory 创建 Session
+
+创建 SessionFactory 对象：
+
+```java
+SessionFactory sessionFactory = configuration.buildSessionFactory();
+```
+
+Configuration 对象会根据配置文件构建 SessionFactory 实例，即当 SessionFactory 一旦构建完毕，之后改变 Configuration 实例不会影响到已经构建完成的 SessionFactory 实例。
+
+SessionFactory 的作用是生成 Session 对象：
+
+```java
+Session session = sessionFactory.openSession();
+Session session = sessionFactory.getCurrentSession();
+```
+
+#### 5.3.5 利用 Session 操作数据库
+
+Session 是 Hibernate 持久化操作的关键对象、基础。持久化对象的生命周期、事务的管理、对象的查询/更新/删除都是通过 Session 完成。
+
+#### 5.3.6 利用 Transaction 管理事务
+
+```java
+Transaction trans = session.beginTransaction();//开始事务
+trans.commit();//提交事务
+```
+
+持久化操作步骤：
+
+1. 创建 Configuration 并装载配置
+2. 创建 SessionFactory 对象
+3. 打开 Session
+4. 开始事务
+5. 持久化操作
+6. 提交事务
+7. 关闭 Session
+
+```java
+public class UserTest{
+    public static void main(String[] args){
+        //创建 User 对象
+        User user = new User("","");
+        
+        //实例化 Configuration
+        Configuration c = new Configuration();
+        
+        //加载 hibernate 配置文件
+        c.configure("/hibernate.cfg.xml");
+        
+        //创建 SessionFactory
+        SessionFactory sf = c.buildSessionFactory();
+        
+        //打开 Session
+        Session s = sf.openSession();
+        
+        //开始事务
+        Transaction t = s.beginTransaction();
+        
+        //持久化操作
+        s.save(user);
+        
+        //提交事务
+        t.commit();
+        
+        //关闭 Session
+        s.close();
+    }
+}
+```
+
+#### 5.3.7 利用 Query 进行 HQL 查询
+
+HQL（Hibernate Query Language）
+
+```java
+Query query = session.createQuery("from User");
+List<User> list = query.list();
+for(User user:list){
+    System.out.println();
+}
+```
+
+#### 5.3.8 利用 Criteria 进行条件查询
+
+criteria n. 标准，条件
+
+```java
+//创建 Criteria 查询对象，查询 User 类所有对象
+Criteria criteria = session.createCriteria(User.class);
+List<User> list = criteria.list();
+for(User user:list){}
+```
+
+### 5.4 Hibernate 配置文件详解 不考吧
+
+### 5.5 Hibernate 映射文件详解 我赌不考
+
+#### 5.5.3 映射集合属性
+
+| 集合映射元素       | 集合属性             | 特性                           |
+| ------------------ | -------------------- | ------------------------------ |
+| \<list>            | java.util.List       | 可重复，有索引                 |
+| \<set>             | java.util.Set        | 不可重复                       |
+| \<map>             | java.util.Map        | key-value                      |
+| \<array>           | 数组                 | 1. 基本数据类型数组 2.对象数组 |
+| \<primitive-array> | 基本数据类型的数组   | 1. 基本数据类型数组            |
+| \<bag>             | java.util.Collection | 无序集合                       |
+| \<idbag>           | java.util.Collection | 无语集合，可以增加逻辑次序     |
+
+### 5.6 持久化对象
+
+1. 无参构造
+2. 表示属性，主键
+3. setter&getter
+4. 非 final 类
+5. 实现 Serializable 接口，是持久化对象可序列化
+
+#### 5.6.1 持久化对象状态（了解即可）
+
+1. 瞬时状态(Transient)
+2. 持久化状态(Persistent)
+3. 托管状态(Detached)
+
+## 小结
+
+- Hibernate 应用的开发方式分三种
+  - 自底向上，从数据库表到持久化类
+  - 自顶向下，从持久化类到数据库
+  - 自中间开始，从配置文件生成持久化类和数据库表
+- Configuration 用于配置并启动 Hibernate，解析配置文件和映射文件，创建 SessionFactory 实例
+- 通过 **SessionFactory** 获取 Session 对象，一个 SessionFactory 实例对应一个数据库对象，**线程安全**，可悲多个线程共享
+- Session 是 Hibernate 框架的核心类，提供了和持久化相关的操作，**非线程安全**，一个 Session 对象一般只有一个单一线程使用
+- hibernate.cfg.xml 中可以直接配置映射文件，文件结构性强、易读和配置灵活
+- hibernate.properties 中不能配置映射文件
+
