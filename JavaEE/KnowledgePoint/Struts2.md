@@ -270,3 +270,66 @@ Struts2 的异常处理是通过在 struts.xml 中配置 \<exception-mapping> �
 </action>
 ```
 
+## 4 Struts2 标签库
+
+### 4.1 Struts2 标签库概述（单选、判断）
+
+自定义标签库的优势：
+
+1. 使用简单
+2. 可维护性强
+3. 复用性高
+
+JSTL（JSP Standard Tag Library，JSP 标准标签库）
+
+#### 4.1.2 标签库的组成
+
+- UI（User Interface，用户界面）标签：
+  - 生成 HTML 元素
+- 非 UI 标签：
+  - 数据访问、逻辑控制
+- Ajax 标签：
+  - 支持 Ajax 技术
+
+### 4.2 OGNL
+
+OGNL（Object Graph Navigation Language，**对象图导航语言**）是一种表达式语言。可以**存取对象**的任意**属性**，**调用对象**的**方法**...
+
+是 Struts2 框架默认的表达式语言。
+
+### 4.3 数据标签
+
+| 标签名   | 描述                                               |
+| -------- | -------------------------------------------------- |
+| property | 输出某个值，该值可以是值栈 or ActionContext 中的值 |
+| param    | 设置参数                                           |
+| bean     | 创建 JavaBean 实例                                 |
+| set      | 设置一个新的变量，并把新变量存储到特定的范围中     |
+| include  | 包含其他页面资源                                   |
+| url      | 生成一个特定的 URL                                 |
+
+```xml
+<s:property value=""/>
+
+<s:param name="" value=""/>
+
+<s:bean name="">
+	<s:param name="" value=""/>
+    <s:property value=""/>
+</s:bean>
+
+<s:set name="" value="" scope=""/>
+
+<s:include value=""/>
+
+<s:url value=""/>
+```
+
+### 4.4 控制标签p83
+
+### 4.5 主题和模板p89
+
+### 4.6 表单标签p91
+
+### 小结
+
