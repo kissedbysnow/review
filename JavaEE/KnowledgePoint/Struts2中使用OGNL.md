@@ -1,0 +1,8 @@
+# OGNL与值栈
+
+- 在Struts2中，值栈对应ValueStack接口，该接口的实现类为OgnlValueStack。
+  - ActionContext类依赖于OgnlContext对象，当对ActionContext对象进行存/取值操作时，实际上存取的是OgnlContext中的数据。
+  - OgnlValueStack类同样依赖于OgnlContext对象而存在，OgnlContext对象也称为Stack Context,在OgnlContext对象中存储了OgnlValueStack对象的引用。与ActionContext不同的是，OgnlValueStack本身还可以借助于一个List类型的对象来存储数据。
+  - OgnlContext作为OGNL内部维护的上下文对象，为其他类进行数据的访问提供了接口
+
+- ValueStack对象默认被设置成OGNL的根对象
