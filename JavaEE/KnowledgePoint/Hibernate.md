@@ -24,10 +24,28 @@ ORM框架的优点：
 Hibernate 中的 PO 采用低侵入设计，完全使用 POJO（Plain Old Java Object，普通传统的 Java 对象）作为持久化对象。
 
 - **persistent**  adj. 执着的，坚持不懈的；持续的，反复出现的；（动植物某部位，如角、叶等）存留的，不落的 
+
 - **plain** adj. 平的；简单的；朴素的；清晰的 n. 平原；无格式；朴实无华的东西 adv. 清楚地；平易地
+
+映射文件示例：
+```
+<hibernate-mapping>
+       <class name="com.dh.ch05.pojo.User" table="USERDETAILS">
+            <id name="id" column="ID">
+                  <generator class="uuid.hex"/>
+            </id>
+            <property name="name" column="userName" type="string" not-null="true"/>
+            <property name="pwd" column="pwd" type="string" not-null="true">
+       <class>
+</hibernate-mapping>
+```
+上述配置文件中，<hibernate-mapping>元素是Hibernate映射文件的根元素，<class>元素描述类和表之间的映射，这样每个class元素将映射成一个PO,即:
+
 ```java
 PO = POJO + 映射文件
 ```
+
+#### Hibernate API
 
 | 名称                | 说明                                                         |
 | ------------------- | ------------------------------------------------------------ |
