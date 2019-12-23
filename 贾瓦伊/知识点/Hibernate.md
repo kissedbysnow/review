@@ -28,7 +28,7 @@ Hibernate 中的 PO 采用低侵入设计，完全使用 POJO（Plain Old Java O
 - **plain** adj. 平的；简单的；朴素的；清晰的 n. 平原；无格式；朴实无华的东西 adv. 清楚地；平易地
 
 映射文件示例：
-```
+```xml
 <hibernate-mapping>
        <class name="com.dh.ch05.pojo.User" table="USERDETAILS">
             <id name="id" column="ID">
