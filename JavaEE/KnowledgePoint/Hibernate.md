@@ -28,7 +28,7 @@ Hibernate 中的 PO 采用低侵入设计，完全使用 POJO（Plain Old Java O
 - **plain** adj. 平的；简单的；朴素的；清晰的 n. 平原；无格式；朴实无华的东西 adv. 清楚地；平易地
 
 映射文件示例：
-```
+```xml
 <hibernate-mapping>
        <class name="com.dh.ch05.pojo.User" table="USERDETAILS">
             <id name="id" column="ID">
@@ -256,7 +256,7 @@ for(User user:list){}
 2. 表示属性，主键
 3. setter&getter
 4. 非 final 类
-5. 实现 Serializable 接口，是持久化对象可序列化
+5. **需要**（非必须）实现 Serializable 接口，是持久化对象可序列化
 
 #### 5.6.1 持久化对象状态（了解即可）
 
@@ -276,3 +276,508 @@ for(User user:list){}
 - hibernate.cfg.xml 中可以直接配置映射文件，文件结构性强、易读和配置灵活
 - hibernate.properties 中不能配置映射文件
 
+## 6 Hibernate 核心技能
+
+### 6.1 Hibernate 关联关系
+
+单向 N-1
+
+```xml
+<many-to-one name="customer" column="CUSTOMER_ID" class="Customer"/>
+```
+
+单向 1-N
+
+```xml
+<set name="orders">
+	<key column="CUSTOMER_ID"/>
+    <one-to-many class="Order"/>
+</set>
+```
+
+#### 6.1.2 级联关系
+
+```xml
+<set name="" cascade="save-update">
+	<key column=""/>
+    <one-to-many class=""/>
+</set>
+```
+
+控制反转
+
+```xml
+<set name="" inverse="true" cascade="">
+	<key column=""/>
+    <one-to-many class=""/>
+</set>
+```
+
+### 6.2 Hibernate 批量处理 ※
+
+#### 6.2.1 批量插入
+
+```java
+public static void addUser(){
+    Session s = HibernateUtils.getSession();
+    Transaction t = s.beginTransaction();
+    for(int i = 0; i < 1000000; i++){
+        User user = new User();
+        user.setNmae("name"+(i+1));
+        s.save(user);
+        if(i % 20 == 0){
+            s.flush();
+            s.clear();
+            t.commit();
+            t = s.beginTransaction();
+        }
+    }
+    HibernateUtils.closeSession();
+}
+```
+
+#### 6.2.2 批量更新
+
+```java
+public static void updateUser(){
+    Session s = HibernateUtils.getSession();
+    Transaction t = s.beginTransaction();
+    ScrollableResults users = s.createQuery("from User").scroll();
+    int count = 0;
+    while(usesr.next()){
+        User user = (User)users.get(0);
+        user.setName("name");
+        if(count % 20 == 0){
+            s.flush();
+            s.clear();
+            t.commit();
+            t = s.beginTransaction();
+        }
+        count++;
+    }
+    t.commit();
+    HibernateUtils.closeSession();
+}
+```
+
+使用 HQL批量更新
+
+```java
+public static void updateUser(){
+    Session s = HibernateUtils.getSession();
+    Transaction t = s.beginTransaction();
+    //
+    Query q = s.createQuery("update User set name=:name");
+    q.setString("name","name");
+    q.executeUpdate();
+    t.commit();
+    HibernateUtils.closeSession();
+}
+```
+
+### 6.3 Hibernate 检索方式 (多选)
+
+| 检索方式   | 描述                                                         |
+| ---------- | ------------------------------------------------------------ |
+| 导航对象图 | 根据已加载的对象，利用对象之间关联关系，导航到其他对象。     |
+| OID        | 可以使用 Session 的 load() 或 get() 方法。例如，检索 OID 为 1 的 User 对象：load(User.class,1) |
+| HQL        | Hibernate Query Language                                     |
+| QBC        | Query By Criteria 提供了更加面向对象的接口，用于各种复杂查询 |
+| 本地 SQL   | 把检索到的 JDBC ResultSet 结果集映射为持久化对象图           |
+
+### 6.4 HQL 与 QBC 检索
+
+- HQL 检索
+  1. 获取 Hibernate 的 Session 对象`Session s = HibernateUtils.getSession();`
+  2. 编写 HQL 查询语句 `String hql = "";`
+  3. 以 HQL 作为参数，调用 Session 对象的 createQuery() 方法，创建 Query 对象 `Query q = s.createQuery(hql);`
+  4. 如果 HQL 语句中包含参数，调用 Query 对象的 setXXX() 方法为参数赋值 `query.setString("","");`
+  5. 调用 Query 对象的 list() 等方法得到查询结果`List<User> list = query.list();`
+  
+- QBC 检索
+
+  1. 获取 Hibernate 的 Session 对象
+  2. 以某类的 Class 对象作为参数调用 Session 对象的 createCriteria() 方法，创建 Criteria 对象。
+  3. 通过调用 Criteria 对象的 add() 方法，增加 Criterion 查询条件
+  4. 执行 Criteria 的 list() 等方法得到查询结果
+
+  Criteria 代表一次查询
+
+  Criterion 代表一个查询条件
+
+  Restrictions 产生查询条件的工具类
+
+#### 6.4.1 Query 与 Criteria 接口
+
+#### 6.4.2 使用别名
+
+HQL 别名同 SQL
+
+QBC 检索方式不需要由应用程序显式地指定类的别名，Hibernate 会自动把查询语句中的根节点实体赋予别名 this 。例如：
+
+```java
+List result = s.createCriteria(User.class)
+    .add(Restrictions.eq("name","xxx"))
+    .list();
+
+List result = s.createCriteria(User.class)
+    .add(Restrictions.eq("this.name","xxx"))
+    .list();
+```
+
+#### 6.4.4 分页查询
+
+HQL 分页查询
+
+```java
+pulic class BusinessService{
+    public static void main(String[] args){
+        int pageNo = 1;
+        int perPageNum = 10;
+        
+        Session session = HibernateUtils.getSession();
+        String hql = "from User u order by c.id desc";
+        Query query = session.createQuery(hql);
+        query.setFirstResult((pageNo - 1) * perPageNum);//设置满足条件第一条记录位置
+        query.setMaxResults(perPageNum);//限定查询返回的记录的总数
+        List<User> list = query.list();
+        for(User user:list){
+            System.out.println(user.getName());
+        }
+    }
+}
+```
+
+QBC Criteria 分页查询
+
+```java
+public class BusniessService{
+    public static void main(String[] args){
+        int pageNo = 10;
+        int perPageNum = 10;
+        
+        Session session = HibernateUtils.getSession();
+        Criteria criteria = session.createCriteria(User.class);
+        criteria.setFirstResult((pageNo - 1) * perPageNum);
+        criteria.setMaxResults(perPageNum);
+        List<User> list = criteria.list();
+        for(User user:list){
+            System.out.println(user.getName());
+        }
+    }
+}
+```
+
+#### 6.4.6 设置查询条件（两种检索方式如何）
+
+**restriction** n. 限制；约束；束缚
+
+| HQL 运算符      | QBC 运算方法             | 描述                   |
+| --------------- | ------------------------ | ---------------------- |
+| =               | Restrictions.eq()        | 等于                   |
+| >               | Restrictions.gt()        | 大于                   |
+| \>=             | Restrictions.ge()        | 大于等于               |
+| <               | Restrictions.lt()        | 小于                   |
+| <=              | Restrictions.le()        | 小于等于               |
+| <>              | Restrictions.ne()        | 不等于                 |
+| is null         | Restrictions.isNull()    |                        |
+| is not null     | Restrictions.isNotNull() |                        |
+| in              | Restrictions.in()        |                        |
+| not in          |                          |                        |
+| between and     | Restrictions.between()   |                        |
+| not between and |                          |                        |
+| like            | Restrictions.like()      |                        |
+|                 | Restrictions.ilike()     | 匹配的字符串忽略大小写 |
+| and             | Restrictions.and()       |                        |
+| or              | Restrictions.or()        |                        |
+| not             | Restrictions.not()       |                        |
+
+- HQL
+
+  2. 范围运算
+
+     ```java
+     session.createQuery("from User u where c.name not in('xx','yy','zz')");
+     ```
+
+  3. 字符串模式匹配
+
+     1. 百分号%：匹配任意长度任意类型的字符串，长度可为0.
+     2. 下划线_：匹配单个任意字符串，常用来限制字符串表达式的长度。
+
+  4. 逻辑运算
+
+     ```java
+     session.createQuery("from User u where c.name like 'z%' and length(password)>6 and c.age not between 20 and 30");
+     ```
+
+- Criteria 的查询条件
+
+  1. 比较运算
+
+     ```java
+     criteria.add(Restrictions.ge("age",20));//年龄大于20
+     ```
+
+     ```java
+     criteria.add(Restrictions.isNOtNull("name"));//姓名不为空
+     ```
+
+  2. 范围运算
+
+     ```java
+     String[] names = {"xx","yy","zz"};
+     criteria.add(Restrictions.in("name",names));
+     ```
+
+     ```java
+     criteria.add(Restrictions.between("age",18,20));
+     ```
+
+  3. 字符串模式匹配
+
+     | 匹配模式           | 描述        |
+     | ------------------ | ----------- |
+     | MatchMode.START    | xx%         |
+     | MatchMode.END      | %xx         |
+     | MatchMode.ANYWHERE | %xx%        |
+     | MatchMode.EXACT    | 精确匹配 xx |
+
+     ```java
+     criteria.add(Restrictions.like("user","z",MatchMode.START));
+     ```
+
+  4. 逻辑运算
+
+     ```java
+     criteria.add(Restrictions.or(Restrictions.between("age",18,20),Restrictions.in("name",names)));
+     ```
+
+#### 6.4.7 HQL 中绑定参数
+
+1. **<u>按照参数名字绑定</u>**（代码）🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒
+
+   ```java
+   public static List<User> findUserByName(String name){
+       Session session = HibernateUtils.getSession();
+       String hql = "from User where name = :name";
+       Query query = session.createQuery(hql);
+       query.setString("name",name);//按照参数名进行绑定
+       return query.list();
+   }
+   ```
+
+2. 按照参数位置绑定
+
+   ```java
+   public static List<User> findUserByName(String name){
+       Session session = HibernateUtils.getSession();
+       String hql = "from User where name = ?";
+       Query query = session.createQuery(hql);
+       query.setString(0,name);//按照参数位置绑定
+       return query.list();
+   }
+   ```
+
+#### 6.4.9 投影、分组与统计
+
+##### 投影查询
+
+1. 实例化查询结果
+
+   ```java
+   String hql = "select new User(id,name) from ..."
+   ```
+
+   ```java
+   String hql = "select new map(id,name) from ..."
+   ```
+
+2. 性能分析
+
+   ```java
+   from User;//返回持久化对象
+   
+   select new map(id,name) from User;//返回关系数据
+   ```
+
+   - **持久化对象**位于 Session 缓存中。大量查询会降低性能。
+   - **关系型数据**不会占用 Session 缓存，只要应用程序中没有任何变量引用这些数据，其占用的内存就会被 JVM 回收。
+
+##### HQL 分组与统计查询
+
+ 1. 统计函数查询
+
+    ```java
+    String hql = "select count(id) from ..."
+    ```
+    ```java
+    String hql = "select avg(age) from ..."
+    ```
+    ```java
+    String hql = "select max(age),min(age) from ..."
+    ```
+
+ 2. 分组查询
+
+    ```java
+    ... group by ... having ...
+    ```
+
+#### 6.4.10 动态查询（代码）🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒🆒
+
+1. HQL 动态查询
+
+   ```java
+   public static List<User> findUser(String name,Integer age){
+       Session session = HibernateUtils.getSession();
+       StringBuffer buffer = new StringBuffer();
+       buffer.append("from User where 1=1 ");
+       if(name != null){
+           buffer.append("and name like :name");
+       }
+       if(age != null && age != 0){
+           buffer.append("and age = :age");
+       }
+       Query query = session.createQuery(buffer.toString());
+       if(name != null){
+           query.setString("name","%"+name.toLowerCase()+"%");
+       }
+       if(age != null && age != 0){
+           query.setInteger("age",age);
+       }
+       return query.list();
+   }
+   ```
+
+2. Criteria 动态查询
+
+   ```java
+   public static List<User> findUser(String name,Integer age){
+       Session session = HibernateUtils.getSession();
+       Criteria criteria  = session.createCriteria(User.class);
+       if(name != null){
+           criteria.add(Restrictions.ilike("name",name,MatchMode.ANYWHERE));
+       }
+       if(age != null && age != 0){
+           criteria.add(Restrictions.eq("age",age));
+       }
+       return criteria.list();
+   } 
+   ```
+
+#### 6.4.11 子查询
+
+1. 单行子查询
+
+   ```java
+   String hql = "from User where age=(select age from User where name=:name)";
+   ```
+
+2. 多行子查询
+
+   | 操作   | 含义                           |
+   | ------ | ------------------------------ |
+   | all    | 全部值                         |
+   | any    | 每个值                         |
+   | in     |                                |
+   | some   | 与 any 等价                    |
+   | exists | 表示子查询语句至少返回一条记录 |
+
+   ```sql
+   where 10>all(select age from ...)
+   ```
+   
+3. 操纵集合的函数和属性
+
+#### 6.4.12 查询方式比较
+
+| 检索方式 | 优点                                                         | 缺点                                                         |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| HQL      | 1. 和 SQL 查询相似，较容易读懂 2. 功能强大，支持各种查询     | 1. 必须基于字符串形式的查询 2. 只有在运行时才被解析 3. 动态查询编程麻烦 |
+| QBC      | 1. 封装了基于字符串形式的查询，提供了更加面向对象的查询 2. 编译期会检查，易于排错 3. 适合生成动态查询语句 | 1. 没有 HQL 功能强，对连接查询支持不友好，不支持子查询。但可以通过 Detached Criteria 和 Subqueries 实现子查询 2. 查询语句被拆分成一组 Criterion 实例，可读性差 |
+
+- HQl
+  - 优点
+    1. 和 SQL 查询相似，较容易读懂
+    2. 功能强大，支持各种查询
+  - 缺点
+    1. 必须基于字符串形式的查询
+    2. 只有在运行时才被解析
+    3. 动态查询编程麻烦
+
+- QBC
+  - 优点
+    1. 封装了基于字符串形式的查询，提供了更加面向对象的查询
+    2. 编译期会检查，易于排错
+    3. 适合生成动态查询语句
+  - 缺点
+    1. 没有 HQL 功能强，对连接查询支持不友好，不支持子查询。但可以通过 Detached Criteria 和 Subqueries 实现子查询
+    2. 查询语句被拆分成一组 Criterion 实例，可读性差
+
+### 6.5 Hibernate 事务管理
+
+#### 6.5.1 数据库事务
+
+事务（transaction）是访问并可能操作各种数据项的一个**数据库操作序列**，这些操作要么全部执行，要么全部不执行，是一个不可分割的工作单位。
+
+事务由**事务开始**与**事务结束**之间执行的**全部数据库操作**组成。
+
+##### 性质：
+
+- 原子性 (**Atomicity**)：事务中的**全部操作**在数据库中是不可分割的，要么全部完成，要么全部不执行
+- 一致性 (**Consistency**)：几个**并**列执**行**的事务，其执行结果必须与按某一顺序串行执行的结果相一致
+- 隔离性 (**Isolation)**：事务的执行**不受**其他事务的**干扰**，事务执行的**中间结果**对其他事务必须是**不可见的**
+- 持久性 (**Durability**)：对于任意**已提交事务**，系统必须保证该事务对数据库的改变**不被丢失**，即数据库出现故障
+
+事务的 ACID 特性由**<u>关系数据库系统</u>**（DBMS）实现，采用**<u>日志</u>**保证**原子性**、**一致性**、**持久性**。对于**隔离性** DBMS 采用**<u>锁机制</u>**。
+
+实际应用中，由事务的隔离性不完全而引发的问题有：
+
+1. **更新丢失**（lost update）：当两个事务同时更新同一数据时，有于某一事务的撤销，导致另一事务对数据的修改也失效了。
+2. **脏读**（dirty read）：一个事务读取到了另一个事务还**没有提交**但**已经更改**过的数据。此时数据可能不是一致性的。
+3. **不可重复读**（non-repeatableread）：当一个事务读取到了某些数据后，另一个事务修改了这些数据并进行了提交。这样当该事务再次读取这些数据时，发现这些数据已经被修改了。
+4. **幻读**（phantom read）：同一查询在同一事务中多次进行，由于其他事务所做的插入操作，导致每次查询返回不同的结果集。幻读严格来说可以算是“不可重复读”的一种。
+   - 幻读：在第二次读取时，一些新数据被添加进来
+   - 不可重复读：相同数据的减少 or 更新，而不是增加
+
+**事务的隔离级别**用来定义**事务**与事物之**间**的**隔离程度**。**隔离级别**与**并发性**是**相互矛盾**的，隔离程度越高，数据库的并发性越差；隔离程度越低，数据库的并发性越好。
+
+隔离级别：
+
+- 读**未**提交（read uncommitted）：如果一个事务已经开始写数据，则其他事务不能同时进行写操作，但允许其他事物读取。一个事务可能看到其他事务未提交的修改。
+- 读**已**提交（read committed）：读取数据的事务允许其他事务继续访问其正在读取的数据，未提交的写事务将会禁止其他事务访问其正在写的数据
+- 可**重复**读（repeatable read）：被 select 语句读取的记录**不能被修改**
+- **序列化**级别（**serializable**）：事务之间**完全隔离**。事务一个接一个执行，不能并发执行
+
+事务比较
+
+|          隔离级别           | 更新丢失 | 脏读 | 不可重复读 | 幻读 |
+| :-------------------------: | :------: | :--: | :--------: | :--: |
+|         读未提交：1         |          |  Y   |     Y      |  Y   |
+|         读已提交：2         |          |      |     Y      |  Y   |
+|        可重复读: ：4        |          |      |            |  Y   |
+| 序列化:1st_place_medal: ：8 |          |      |            |      |
+
+#### 6.5.2 Hibernate 中的事务
+
+```java
+public void adduser(User user){
+    Session session = HibernateUtils.getSession();
+    Transaction trans = session.beginTransaction();//设定事务开始边界
+    try{
+        session.save(user);
+    }catch(Exception e){
+        e.printStackTrace();
+        trans.rollback();//回滚
+    }
+    trans.commit();//提交
+    HibernateUtils.closeSession();
+}
+```
+
+### 小结
+
+- HQL 是一种完全**面向对象**的查询语言，其操作的对象是类、实例、属性...支持**继承**和**多态**
+- SQL 操作对象是数据表和列...
+- 
