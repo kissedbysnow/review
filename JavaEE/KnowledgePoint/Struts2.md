@@ -22,7 +22,7 @@ Struts2的配置文件有两种：
 
 - 配置 Action 的 struts.**xml** 文件
 
-### Struts2 的处理步骤（Struts2 处理请求直到返回响应的完整过程）
+#### 2.1.6 Struts2 的处理步骤（Struts2 处理请求直到返回响应的完整过程）（一定考）
 
 1. 客户端浏览器发送一个请求
 2. 经过核心控制器 **StrutsPrepareAndExecuteFilter** 过滤处理，转交给相应的 **Action** 代理。
@@ -86,7 +86,7 @@ struts2 搜索 <u>**Action**</u> 的顺序：
 1. 对于使用 Struts2 框架开发的应用而言，<u>**Action**</u> 是应用的核心,每个 **Action**类就是一个**工作单元**,包含了对用户**请求的处理逻辑**,因此 <u>**Action**</u> 也被称为**业务控制器**。
 2. 在开发过程中，开发者需要根据处理逻辑的不同写出相应的 <u>**Action**</u> 类,并在 struts.xml 文件中配置好每个 <u>**Action**</u> 类。
 
-#### 3.2.1 Action 实现
+#### 3.2.1 Action 实现（掌握代码）
 
 - POJO 实现方式
 
@@ -152,7 +152,7 @@ struts2 搜索 <u>**Action**</u> 的顺序：
 
   - validate() 在执行 execute() 之前运行，如果发现数据不符合条件，将执行 addFieldError()
 
-#### 3.2.2 Action 访问 ActionContext
+#### 3.2.2 Action 访问 ActionContext（问答or多选）
 
 通过 **ActionContext** 来访问 **Servlet API** 。
 
@@ -188,15 +188,39 @@ public class CounterAction extends ActionSupport implements ServletRequestAware{
 }
 ```
 
-#### 3.2.5 动态方法调用
+第三种方法：ServletActionContext 直接访问 Servlet API
+
+#### 3.2.5 动态方法调用（也很重要 加上 3.2.6 共三种方式 如何使用 考 Action 实现）
 
 DMI（Dynamic Method Invocation，动态方法调用）
 
 actonName **!** methodName.action
 
+```java
+public class UserAction extends ActionSupport{
+    public String edit(){
+        return "edit";
+    }
+    public String del(){
+        return "del";
+    }
+}
+```
+
 #### 3.2.6 通配符配置
 
-### 3.3 处理结果
+```xml
+<struts>
+	<package name="" extends="">
+    	<action name="*" class="" method="{1}">
+        	<result name="success">success.jsp</result>
+            <result name="del">del.jsp</result>
+        </action>
+    </package>
+</struts>
+```
+
+### 3.3 处理结果（了解）
 
 #### 3.3.2 result 配置
 
@@ -270,9 +294,9 @@ Struts2 的异常处理是通过在 struts.xml 中配置 \<exception-mapping> �
 </action>
 ```
 
-## 4 Struts2 标签库
+## 4 Struts2 标签库（单选、判断）
 
-### 4.1 Struts2 标签库概述（单选、判断）
+### 4.1 Struts2 标签库概述
 
 自定义标签库的优势：
 

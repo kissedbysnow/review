@@ -2,6 +2,8 @@
 
 ### 5.1 Hibernate 概述
 
+ORM（Object Relational Mapping，对象关系映射）
+
 #### 5.1.1 ORM框架（对象关系映射~）
 
 目前应用最为广泛的数据库是**关系**型数据库，存放的是**关系**型数据而非**对象**数据，带来了**对象**——**关系**之间数据映射的问题。
@@ -62,7 +64,7 @@ PO = POJO + 映射文件
 
 - **criteria**  n. 标准，条件 
 
-### 5.2 Hibernate 应用开发方式
+### 5.2 Hibernate 应用开发方式（了解）
 
 三种开发方式：
 
@@ -278,7 +280,7 @@ for(User user:list){}
 
 ## 6 Hibernate 核心技能
 
-### 6.1 Hibernate 关联关系
+### 6.1 Hibernate 关联关系（掌握理论，不会考问答、代码）
 
 单向 N-1
 
@@ -385,7 +387,7 @@ public static void updateUser(){
 | QBC        | Query By Criteria 提供了更加面向对象的接口，用于各种复杂查询 |
 | 本地 SQL   | 把检索到的 JDBC ResultSet 结果集映射为持久化对象图           |
 
-### 6.4 HQL 与 QBC 检索
+### 6.4 HQL 与 QBC 检索（重要，好好看）
 
 - HQL 检索
   1. 获取 Hibernate 的 Session 对象`Session s = HibernateUtils.getSession();`
