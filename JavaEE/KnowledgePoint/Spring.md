@@ -239,5 +239,151 @@ System.out.println(film.toString());
 
 #### 7.3.6 Bean 作用域
 
-#### 7.3.7 自动装配
+- singleton：在每个 Spring IoC 容器中，一个 Bean 定义对应唯一一个对象实例，Bean 以单例的方式存在
+
+- prototype：一个 Bean 定义对应多个对象实例，每次调用 getBean() 时，就创建一个新实例
+
+- request：在一次 HTTP 请求中，一个 Bean 定义对应一个实例，即每次 HTTP 请求都将会有各自的 Bean 实例
+
+- session：在一个 HTTP Session 中，一个 Bean 定义对应一个实例
+
+- global session：在一个全局的 HTTP Session 中，一个 Bean 定义对应一个实例。仅在使用 portlet context 的时候有效
+
+#### 7.3.7 自动装配 autowire
+
+## 第八章 Spring 深入
+
+### 8.1 Spring AOP
+
+AOP（Aspect Oriented Programming，面向切面编程）
+
+**面向对象编程**从**静态**角度考虑程序的结构，而**面向切面编程**则从**动态**角度考虑程序的运行过程
+
+#### 8.1.1 AOP 思想和本质
+
+Aspect（切面）将与业务无关却为业务模块共同调用的逻辑封装起来，从而减少系统的重复代码，降低模块间的耦合度，有利于系统的可维护性和可拓展性。
+
+#### AOP 术语
+
+- 连接点 Join point：一个类 or 一段程序代码拥有一些具有边界性质的特定点。实际上，就是程序执行的某个特定位置
+- 切入点 Point cut：被增强的连接点
+- 增强 Advice：织入到目标类特定连接电商的一段程序代码
+- 目标对象 Target：增强被织入的目标类
+- 引入 Introduction：一种特殊的增强，它为类添加一些属性和方法
+- 织入 Weaving：将增强添加到目标类具体连接点上的过程
+- 代理 Proxy：一个类被 AOP 织入增强后，就会产生一个结果类，该结果类就是融合了目标类和增强逻辑的代理类，根据不同的代理方式，该结果类既可能是和目标类具有相同接口的类，也可能就是目标类的子类，所以可使用调用目标类的方式来调用该结果类
+- 切面 Aspect：切面由切入点和增强组成
+
+需要开发人员参与的有三方面：
+
+1. 定义普通业务类
+2. 定义切入点，一个切入点可能横切多个业务组件
+3. 定义增强，增强就是在 AOP 框架为普通业务组织织入的处理逻辑
+
+#### 8.1.3 Advice 类型
+
+- 前置增强：在某个连接点方法之前执行的增强
+- 后置增强：指连接点方法无论在任何情况下退出时所执行的增强
+- 返回后增强：指在某个连接点方法正常执行后执行的增强
+- 抛出异常后增强：指在连接点方法抛出异常后执行的增强
+- 环绕增强：指包围连接点方法的增强
+
+#### 8.1.4 基于 XML 配置的 AOP
+
+2. 配置增强
+
+```xml
+<aop:config>
+	<aop:aspect id="adviceAspect" ref="myAspect">
+    	<aop:before method="before" pointcut="execution(*)"/>
+        <aop:after method="after" pointcut="..."/>
+        <aop:after-returning method='afterReturn' pointcut="..." returning="result"/>
+        <aop:after-throwing method="afterException" pointcut="..." throwing="ex"/>
+        <aop:around method="around" pointcut="..."/>
+    </aop:aspect>
+</aop:config>
+
+<!-- 配置切面 -->
+<bean id="myAspect" class=""/>
+```
+
+3. 配置切入点
+
+```xml
+<aop:config>
+    <aop:pointcut id="mypointcut" expression="execution(*)"/>
+    <aop:aspect id="adviceAspect" ref="myAspect">
+    	<aop:before method="before" pointcut-ref="mypointcut"/>	
+        <aop:before method="before" pointcut="execution(*)"/>
+    </aop:aspect>
+</aop:config>
+```
+
+4. 切入点指示符
+5. 组合切入点表达式
+
+#### 基于 Annotation 配置的 AOP
+
+1. 配置切面
+
+   ```xml
+   <aop:aspectj-autoproxy/>
+   ```
+
+2. 配置增强
+
+   | 名称            | 描述       |
+   | --------------- | ---------- |
+   | @Before         | 前置增强   |
+   | @AfterReturning | 返回后增强 |
+   | @Around         | 环绕增强   |
+   | @AfterThrowing  | 抛出增强   |
+   | @After          | 后置增强   |
+
+   ```java
+   @Aspect
+   public class MyAspect2{
+       @Before("execution(*com..*.JXLService.*(..))")
+       public void before(){}
+       
+       @After()
+       public void after(){}
+       
+       @AfterReturning(returning="result",pointcut="execution()")
+       public void afterReturn(Object result){}
+       
+       @AfterThrowing(pointcut="executijon()",throwing="ex")
+       public void afterException(Throwable ex){syso:ex.getMessage();}
+       
+       @Around("execution()")
+       public Object around(ProceedingJoinPoint joinpoint)throws Throwable{
+           Object object = joinpoint.proceed();
+           return object;
+       }
+   }
+   ```
+
+   ```xml
+   <!-- 启动 AspectJ 注解的支持 -->
+   <aop:aspectj-autoproxy/>
+   <!-- 配置切面 Bean -->
+   <bean id="myAspect2" class=""/>
+   <!-- 配置 UserService 类 -->
+   <bean id="jxlService" class=""/>
+   ```
+
+3. 配置切入点
+
+   ```java
+   @Aspect
+   public class AspectBean{
+       @Pointcut("execution()")
+       private void crud(){};
+       
+       @Before("crud()")
+       public void checkAuth(){}
+   }
+   ```
+
+### 8.2 Spring 事务管理
 
