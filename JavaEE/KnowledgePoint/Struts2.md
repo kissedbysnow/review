@@ -30,6 +30,18 @@ Struts2的配置文件有两种：
 4. 调用 **Action** 前后，涉及相关拦截器的调用。拦截器链自动对请求应用通用功能
 5. 一旦 **Action** 执行完毕，找到 **execute()** 方法返回值对应的结果
 
+#### 2.1.6 PPT 上的处理步骤
+
+1. 客户端/浏览器发送请求，J2EE 容器解析 HTTP 包，将其封装成 HttpServletRequest。传到核心控制器StrutsPrepareAndExecuteFilter 中
+2. StrutsPrepareAndExecuteFilter 拦截到这个请求，进行过滤处理，根据请求路径到 ActionMapper 中查询决定调用哪个 **Action**
+3. 根据 ActionMapper 的返回结果，StrutsPrepareAndExecuteFilter 委托 **Action** 代理（Proxy）去配置文件 struts.xml 中找到这个 **Action** 
+4. **Action** 代理创建一个 **Action** Invocation，开始对拦截器和 **Action** 进行递归调用
+5. 各个拦截器完成各自任务，拦截器链自动对请求应用通用功能。例如自动化工作流、验证或文件上传
+6. 真正对 **Action** 的调用，回调 **Action** 的execute()方法，获取用户请求执行相应的业务逻辑，返回一个字符串作为处理结果
+7. **Action** 代理根据 struts.xml 中的配置信息找到 execute() 返回值对应的结果
+8. Result对象将返回数据输出到流中
+9. 返回HttpServletResponse给J2EE容器，容器发送HTTP包到客户端。
+
 ## Strust2 深入
 
 配置常量的方式：
