@@ -120,6 +120,16 @@ struts2 搜索 <u>**Action**</u> 的顺序：
     }
     ```
     
+  - ```xml
+    <struts>
+        <package name="Reg" extends="struts-default">
+            <action name="Reg" class="">
+                <result name="ok">xxx.jsp</result>
+            </action>
+        </package>
+    </struts>
+    ```
+
   - POJO 实现方式：就是一个简单的 **JavaBean**，每个属性对应 **get**/**set** 方法，并有 **execute()** 方法，其返回字符串，Struts2 框架对该字符串进行判断，从而转发到正确的界面用于响应用户的请求。
 
 - 实现 <u>**Action**</u> 接口
