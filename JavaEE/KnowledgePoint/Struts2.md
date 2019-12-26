@@ -193,7 +193,9 @@ public class CounterAction extends ActionSupport{
 }
 ```
 
-#### 3.2.3 Action 直接访问 Servlet API （问答or多选）
+#### 3.2.3 Action 直接访问 Servlet API （问答or多选）:1234::1234::1234::1234::1234::1234::1234:
+
+**以 ServletRequestAware** 接口为例，通过获取 **HttpSession**，来统计每个浏览器用户访问的次数。
 
 ```java
 public class CounterAction extends ActionSupport implements ServletRequestAware{
@@ -201,9 +203,14 @@ public class CounterAction extends ActionSupport implements ServletRequestAware{
     public void setServletRequest(HttpServletRequest request){
         this.request=request;
     }
-    public String execute{
+    public String execute(){
         HttpSession session = request.getSession();
         Integer cout = (Integer)session.getAttribute("counter");
+        if(cout == null){
+            cout = 1;
+        }else{
+            cout++;
+        }
         session.setAttribute("counter",cout);
         return SUCCESS;
     }
