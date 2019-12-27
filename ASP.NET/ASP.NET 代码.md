@@ -58,10 +58,6 @@ namespace dictinary{
 }
 ```
 
-
-
-
-
 ### 第八章
 
 #### p98 Session 登录
@@ -131,6 +127,54 @@ publicpaetial class ServerDemo: System.Web.UI.Page {
         str = Server.HtmlDecode(str); Response.Write(str + ” < br / > ”);
     }
 }
+```
+
+#### p125 使用 Web 服务器控件创建 用户注册页面
+
+```html
+<td class="style2">
+	<asp:RadioButtonList ID="rblSex" runat="server" 
+		RepeatDirection="Horizontal">
+		<asp:ListItem Selected="True">男</asp:ListItem>
+		<asp:ListItem>女</asp:ListItem>
+	</asp:RadioButtonList>
+</td>
+<td class="style2">
+	<asp:CheckBoxList ID="cblLike" runat="server" 
+		RepeatColumns="4">
+		<asp:ListItem>跑步</asp:ListItem>
+		<asp:ListItem>爬山</asp:ListItem>
+…
+
+```
+
+```c#
+protected void btnRegist_Click(object sender, EventArgs e)
+{
+	string strName = txtName.Text;
+	string strPwd = txtPwd.Text;
+	string strRePwd = txtRePwd.Text;
+	if (strRePwd != strPwd)
+	{
+		Response.Write("<Script>alert('确认密码必须和密码相同')</Script>");
+		return;
+	}
+	string strSex = rblSex.SelectedItem.Value;
+	string strLike = "";
+	foreach (ListItem item in cblLike.Items)
+	{
+		if (item.Selected)
+		{
+			strLike += item.Value + " ";
+		}
+	}
+	string strProvince = ddlProvince.SelectedItem.Value;
+	Response.Write("姓名：" + strName + "<br/>");
+	Response.Write("密码：" + strPwd + "<br/>");
+	Response.Write("性别：" + strSex + "<br/>");
+	Response.Write("爱好：" + strLike + "<br/>");
+	Response.Write("省份：" + strProvince + "<br/>");
+} 
 ```
 
 #### p146 使用 Command 和 DataReader 访问数据库，实现登陆功能
