@@ -96,7 +96,7 @@ Given the following set of process(Postgraduate Entrance examination of ZheJiang
 
    __The average turnaround time is 5.__(平均周转时间为5)
 
-2. How about for a Round Robin policy with the time quantum length as 1?(使用时间片为1的轮转调度法怎么样？)
+2. How about for a Round Robin policy with the time quantum length as 1?（使用**时间片为 1** 的 **轮转调度**法怎么样？)
 
    | 进程名 |      |      |      |      |      |      |      |      |      |      |       |       |       |       |       |
    | ------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----- | ----- | ----- | ----- | ----- |
@@ -113,5 +113,3 @@ Given the following set of process(Postgraduate Entrance examination of ZheJiang
    | P3   |      |      |      | +    |      |      |      |      |      |      |      |      |      |      |      |
    | P4   |      |      |      |      |      |      | +    |      | +    | +    |      | +    |      |      |      |
    | P5   |      |      |      |      |      |      |      |      |      |      | +    |      | +    | +    | +    |
-
-   
