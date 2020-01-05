@@ -226,3 +226,33 @@ FIFO:
 | 2    | 2      | 200      | 1      |
 | 3    | 9      | 160      | 1      |
 
+***
+
+#### 例11
+
+Suppose that pages in a virtual address space are referenced in the following order(假设虚拟地址空间中的页面按如下顺序引用:):
+
+​       3  2  4  2  1  3  1  5  2  3  4  2
+
+There are three empty frames available. Assume that paging decisions are made on demand.(有三个可用的空帧。假设分页决策是按需做出的。)
+
+1. Show the contents of the frames after each memory reference for the LRU replacement policy. How many page faults occur?(显示LRU替换策略中每个内存引用之后的帧的内容。发生了多少页面错误?)
+
+2. Repeat the above question for the clock policy. (对时钟策略重复上述问题。)
+   1. | 3    | 2    | 4    | 2    | 1    | 3    | 1    | 5    | 2    | 3    | 4    | 2    |
+      | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+      | 3    | 3    | 3    |      | 1    | 1    |      | 1    | 1    | 3    | 3    |      |
+      |      | 2    | 2    |      | 2    | 2    |      | 5    | 5    | 5    | 4    |      |
+      |      |      | 4    |      | 4    | 3    |      | 3    | 2    | 2    | 2    |      |
+      | 缺   | 缺   | 缺   |      | 缺   | 缺   |      | 缺   | 缺   | 缺   | 缺   |      |
+
+   发生9次页面错误。
+
+2. | 3    | 2    | 4    | 2    | 1    | 3    | 1    | 5    | 2    | 3    | 4    | 2    |
+   | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+   | 3*   | 3*   | 3*   | 3*   | 3    | 3*   | 3*   | 3    | 2*   | 2    | 2    | 2*   |
+   |      | 2*   | 2*   | 2    | 1*   | 1*   | 1    | 1    | 1    | 3*   | 3    | 3    |
+   |      |      | 4*   | 4*   | 4    | 4    | 4    | 5*   | 5    | 5    | 4*   | 4*   |
+   | 缺   | 缺   | 缺   | 不   | 缺   | 不   | 不   | 缺   | 缺   | 缺   | 缺   | 不   |
+
+   发生8次页面错误
