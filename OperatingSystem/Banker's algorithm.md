@@ -110,3 +110,9 @@ P2 请求资源，P1 发出请求向量 Request2(1,0,1)，系统按银行家算�
 ​       Request2(0,2,0) <= **Available**(0,3,2)
 
 ​      分配资源后系统将处于不安全状态，所以不能实现资源分配。
+
+***
+
+#### 例3
+
+Consider the following snapshot of a system:
