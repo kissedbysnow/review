@@ -116,3 +116,26 @@ P2 请求资源，P1 发出请求向量 Request2(1,0,1)，系统按银行家算�
 #### 例3
 
 Consider the following snapshot of a system:
+
+|      | Allocation | Max        | Available  | Need       |
+| ---- | ---------- | ---------- | ---------- | ---------- |
+| P0   | 0  0  1  1 | 0  0  1  1 | 1  5  2  0 | 0  0  0  0 |
+| P1   | 1  0  0  0 | 1  7  5  0 |            | 0  7  5  0 |
+| P2   | 1  3  5  4 | 2  3  5  6 |            | 1  0  0  2 |
+| P3   | 0  6  3  2 | 0  6  5  2 |            | 0  0  2  0 |
+| P4   | 0  0  1  4 | 0  6  5  6 |            | 0  6  4  2 |
+
+Answer the following question using the banker's algorithm:
+
+1. Is the system in a safe? If so,please show a safe sequence.
+2. If a request from process P1 arrives for (0,4,2,0) can the request be granted immediately?
+
+1. | Process | Work         | Need       | Allocation | 新Work        | Finish |
+   | ------- | ------------ | ---------- | ---------- | ------------- | ------ |
+   | P0      | 1  5  2  0   | 0  0  0  0 | 0  0  1  1 | 1  5  3  1    | true   |
+   | P3      | 1  5  3  1   | 0  0  2  0 | 0  6  3  2 | 1  11  5  3   | true   |
+   | P1      | 1  11  5  3  | 0  7  5  0 | 1  0  0  0 | 2  11  5  3   | true   |
+   | P2      | 2  11  5  3  | 1  0  0  2 | 1  3  5  4 | 3  14  10  7  | true   |
+   | P4      | 3  14  10  7 | 0  6  4  2 | 0  0  1  4 | 3  14  11  11 | true   |
+
+   
