@@ -1,6 +1,6 @@
-## 
+## 一、Android 概述
 
-### Android 应用程序构成
+### 1.3 Android 应用程序构成
 
 - 活动 **Activity**
   - 一个活动就是一个单独的屏幕
@@ -19,3 +19,27 @@
 - 意图 **Intent**
   - 用来描述应用程序的功能
   - 利用消息实现应用程序间的交互机制，能够在程序运行的过程中连接两个不同的组件
+
+### 1.4 Android 开发环境搭建
+
+- 当前，Android 开发环境有：
+  - Eclipse
+  - ADT-Bundle (Eclipse + ADT + SDK)
+  - Android Studio 
+
+### 1.5 Android 项目架构
+
+### 1.6 Android 示例
+
+
+
+
+
+
+
+
+
+
+
+
+
