@@ -27,19 +27,29 @@
   - ADT-Bundle (Eclipse + ADT + SDK)
   - Android Studio 
 
+#### 安装 SDK tools 及 SDK
+
+3. 配置 Android 环境变量
+
+   用户变量 PATH `J:\android-sdk-windows\build-tools`
+
+4. 安装 ADT 插件
+
+   1. Eclipse 离线安装 ADT插件
+
+      下载 ADT 插件（.zip）
+
+      启动 Eclipse
+
+安装 SDK tools 
+
 ### 1.5 Android 项目架构
 
 ### 1.6 Android 示例
 
+## 二、活动 Activity
 
+### 2.1 Activity 入门
 
-
-
-
-
-
-
-
-
-
+#### 2.1.1 Activity 简介
 
