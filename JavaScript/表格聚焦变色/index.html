@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function f(){
+			var object = document.all("tr");
+			for (var i = 0; i < object.length; i++) {
+				object[i].addEventListener("mouseover",function(){//改变颜色
+					this.bgColor='#EEF6FF';
+				},false);
+				object[i].addEventListener("mouseout",function(){//恢复颜色
+					this.bgColor='#FFFFFF';
+				},false);
+			}
+		}
+		window.onload = function(){
+			f();
+		}
+	</script>
+</head>
+<body>
+	<div id="infoTab">
+		<table border="1" cellpadding="5" cellspacing="0" bgcolor="#FFFFFF">
+			<tr id="tr">
+				<td>姓名</td>
+				<td>班级</td>
+				<td>姓名</td>
+				<td>班级</td>
+			</tr>
+			<tr id="tr">
+				<td>张三</td>
+				<td>四班</td>
+				<td>姓名</td>
+				<td>班级</td>
+			</tr>
+			<tr id="tr">
+				<td>姓名</td>
+				<td>班级</td>
+				<td>姓名</td>
+				<td>班级</td>
+			</tr>
+			<tr id="tr">
+				<td>张三</td>
+				<td>四班</td>
+				<td>姓名</td>
+				<td>班级</td>
+			</tr>
+			<tr id="tr">
+				<td>姓名</td>
+				<td>班级</td>
+				<td>姓名</td>
+				<td>班级</td>
+			</tr>
+			<tr id="tr">
+				<td>张三</td>
+				<td>四班</td>
+				<td>姓名</td>
+				<td>班级</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

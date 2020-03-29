@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="time"></div>
+</body>
+	<script type="text/javascript">
+		function setClock(){
+			document.getElementById("time").innerHTML="<h1>当前时间:"+new Date()+"</h1>";
+			setTimeout(setClock,100);
+		}
+		setClock();
+	</script>
+</html>

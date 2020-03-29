@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		var number = 0;
+		function showPicture(){
+			document.getElementById("image").src="images/image-"+(number+1)+".png";
+			console.log(number+1);
+		}
+		function prev(){
+			number=(number-1+5)%5;//0-4循环
+			showPicture();
+		}
+		function next(){
+			number=(number+1+5)%5;//0-4循环
+			showPicture();
+		}
+		window.onload = function(){
+			document.getElementById("prev").addEventListener("click",prev,false);
+			document.getElementById("next").addEventListener("click",next,false);
+		}
+	</script>
+</head>
+<body>
+	<h2>图片索引从 1 开始，5 结束，共 5 张。</h2>
+	<img src="images/image-1.png" id="image" height="600">
+	<div>
+		<button id="prev">PREV</button>
+		<button id="next">NEXT</button>
+	</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		var number = 0;
+		function showPicture(){
+			document.getElementById("image").src="images/image-"+number+".png";
+			// console.log(number);
+		}
+		function next(){
+			number=(number+1+5)%5;//0-4循环
+			showPicture();
+			// console.log(number);
+			setTimeout(next,1000);
+		}
+		window.onload = function(){
+			next();
+		}
+	</script>
+</head>
+<body>
+	<h2>图片索引从 0 开始，4 结束，共 5 张。</h2>
+	<img src="images/image-0.png" id="image" height="600">
+</body>
+</html>
