@@ -349,3 +349,12 @@ setTimeout(function,millisecond)
 ```
 
 `.innerHTML=""` 在此元素内容增加指定内容，而且内容可以是 HTML 代码
+
+## 四、表单交互
+
+### 4.1 正则表达式
+
+```js
+/^正则$/.test(待检测数据)
+```
+
