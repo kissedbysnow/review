@@ -89,3 +89,55 @@
 | 标题   | 16px~28px 采用偶数                           |
 | 页脚   | 12px 浅色                                    |
 
+## 十一、表单
+
+### 11.1 Input 控件
+
+```html
+<form>
+    <input type="text"/>
+    <input type="password"/>
+    <input type="radio"/>		<!--单选框-->
+    <input type="checkbox"/>	<!--复选框-->
+    <input type="button"/>
+    <input type="submit"/>
+    <input type="reset"/>		<!--重置-->
+    <input type="image"/>		<!--图像形式的提交按钮-->
+    <input type="hidden"/>		<!--隐藏域-->
+    <input type="file"/>		<!--文件选择-->
+</form>
+```
+
+### 11.2 Select 控件（下拉框）
+
+```html
+<select>
+    <option></option>
+    <option></option>
+    <option></option>
+</select>
+```
+
+| 标记名        | 常用属性 | 描述                                                         |
+| ------------- | -------- | ------------------------------------------------------------ |
+| **\<select>** | size     | 下拉菜单的可见选项数                                         |
+|               | multiple | 下来菜单将具有多项选择的功能，方法为按住 Ctrl 键的同时选择多项 |
+| **\<option>** | selected | 当前项即为默认选中项                                         |
+
+### **11.3 TextArea 控件（文本框）**
+
+```html
+<textarea cols="每行的字符数" rows="行数">
+</textarea>
+```
+
+### 11.4 Label 控件
+
+一般用来标记表单控件的提示信息，for 属性取表单控件的 id 值
+
+```html
+<label for="name">姓名</label>
+<input type="text" id="name"/>
+```
+
+### 11.5 表单的美化
