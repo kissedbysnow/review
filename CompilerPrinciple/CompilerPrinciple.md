@@ -475,32 +475,105 @@ G(s): S → ab|aSb
   FOLLOW(A)={**#**|S→...A}
 
 - 也就是说，FOLLOW(A) 是所有句型中，紧跟在 A 后的**终结符**或 **#**
+
 - 例子：
 
-> ① S→aA
->
-> ② A→ε
->
-> ③ S→d
->
-> ④ A→bAS
->
-> > - 根据 ① S→aA 得：FOLLOW(A)={#}
-> >
-> >   - ⇒④⇒ S→abAS
-> >     - ⇒①⇒ S→abA[a]()A 得：FOLLOW(A)={a}
-> >     - ⇒③⇒ S→abA[d]() 得：FOLLOW(A)={d}
-> >
-> >   ∴ FOLLOW(A)={#,a,d}
-> >
-> > - 根据 ① S→aA
-> >
-> >   - ⇒④⇒ S→abAS 得：FOLLOW(S)={#}
-> >     - ⇒④⇒ S→abbASS 
-> >       - ⇒①⇒ S→abbAS[a]()A 得：FOLLOW(S)={a}
-> >       - ⇒③⇒ S→abbAS[d]() 得：FOLLOW(S)={d}
-> >
-> >   ∴ FOLLOW(S)={#,a,d}
+    > ① S→aA
+    >
+    > ② A→ε
+    >
+    > ③ S→d
+    >
+    > ④ A→bAS
+    >
+    > > - 根据 ① S→aA 得：FOLLOW(A)={#}
+    > >
+    > >   - ⇒④⇒ S→abAS
+    > >     - ⇒①⇒ S→abA[a]()A 得：FOLLOW(A)={a}
+    > >     - ⇒③⇒ S→abA[d]() 得：FOLLOW(A)={d}
+    > >
+    > >   ∴ FOLLOW(A)={#,a,d}
+    > >
+    > > - 根据 ① S→aA
+    > >
+    > >   - ⇒④⇒ S→abAS 得：FOLLOW(S)={#}
+    > >     - ⇒④⇒ S→abbASS 
+    > >       - ⇒①⇒ S→abbAS[a]()A 得：FOLLOW(S)={a}
+    > >       - ⇒③⇒ S→abbAS[d]() 得：FOLLOW(S)={d}
+    > >
+    > >   ∴ FOLLOW(S)={#,a,d}
+
+- 作业：
+
+    > 设文法 G(S):
+    >
+    > S→(L)|aS|a
+    >
+    > L→LbS|S
+    >
+    > 1. 消除左递归和回溯
+    >
+    >    > - 消除回溯
+    >    >
+    >    >   S→(L)|aS'
+    >    >
+    >    >   S'→S|ε
+    >    >
+    >    > - 消除左递归
+    >    >
+    >    >   L→SL'
+    >    >
+    >    >   L'→bSL'|ε
+    >
+    > 2. 在 1. 的基础上，计算每个非终结符号的 FIRST 集和 FOLLOW 集
+    >
+    >    ① S→(L)|aS'
+    >
+    >    ② S'→S|ε
+    >
+    >    ③ L→SL'
+    >
+    >    ④ L'→bSL'|ε
+    >
+    >    - FIRST(S)={(,a}
+    >
+    >      由 ① 得：S→([L]())|**a**S'→**(**SL')|aS'
+    >
+    >    - FIRST(S')={(,a,ε}
+    >
+    >      由 ② 得：S'→S|**ε**→FIRST(S)|ε
+    >
+    >    - FIRST(L)={(,a}
+    >
+    >      由 ③ 得：L→[S]()L'→FIRST(S)
+    >
+    >    - FIRST(L')={b,ε}
+    >
+    >      由 ④ 得：L'→**b**SL'|**ε**
+    >
+    >    - FOLLOW(S)={#,b,)}
+    >
+    >      S⇒aS'⇒aS
+    >
+    >      S⇒(L)⇒(SL')⇒(S**b**SL')⇒(SbSε)⇒(SbS**)**
+    >
+    >      ​			        ⇒(Sε)⇒(S**)**
+    >
+    >    - FOLLOW(S')={#,b,)}
+    >
+    >      S⇒aS'
+    >
+    >      S⇒(L)⇒(SL')⇒(aS'L')⇒(aS'**b**L')⇒
+    >
+    >      ​								 ⇒(aS'ε)⇒(aS'**)**
+    >
+    >    - FOLLOW(L)={)}
+    >
+    >      S⇒(L**)**
+    >
+    >    - FOLLOW(L')={)}
+    >
+    >      S⇒(L)⇒(SL'**)**
 
 #### 4.3.2 LL(1) 文法
 
