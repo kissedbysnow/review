@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript">
+    function wordCount(color, length) {
+        textareaSpan.innerHTML = "<font color='" + color + "'>已输入字符 " + length + "</font>";
+    }
+
+    function validate() {
+        var length = textarea.value.length;
+        if (length <= 10) {
+            wordCount("green", length);
+        } else if (length <= 20) {
+            wordCount("orange", length);
+            document.getElementById("submit").disabled = false;
+        } else {
+            wordCount("red", length);
+            document.getElementById("submit").disabled = true;
+        }
+    }
+    window.onload = function() {
+        var textarea = document.getElementById("textarea");
+        var textareaSpan = document.getElementById("textareaSpan");
+        textarea.addEventListener("keydown", validate, false);
+        textarea.addEventListener("keyup", validate, false);
+    }
+    </script>
+</head>
+
+<body>
+    <form>
+        <textarea id="textarea" cols="50" rows="10">超出20个字后，保存按键失效</textarea>
+        <br>
+        <span id="textareaSpan"></span>
+        <br>
+        <button type="submit" id="submit">保存</button>
+    </form>
+</body>
+
+</html>

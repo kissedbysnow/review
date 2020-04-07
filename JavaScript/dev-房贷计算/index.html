@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="css/form.css">
+    <script type="text/javascript" src="js/houseLoan.js"></script>
+    <script type="text/javascript" src="js/validateUtils.js"></script>
+    <script type="text/javascript" src="js/MathUtils.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <form>
+        <table border="1" cellpadding="5" cellspacing="0"width="100%">
+            <tr>
+                <td colspan="3" class="title">房贷计算器</td>
+            </tr>
+            <tr>
+                <td>平米单价：</td>
+                <td><input type="text" id="unitPrice" class="init"></td>
+                <td><span id="unitPriceSpan"></span> </td>
+            </tr>
+            <tr>
+                <td>租金：</td>
+                <td><input type="text" id="rent" class="init"></td>
+                <td><span id="rentSpan"></span> </td>
+            </tr>
+            <tr>
+                <td>物业费：</td>
+                <td><input type="text" id="propertyFee" class="init"></td>
+                <td><span id="propertyFeeSpan"></span> </td>
+            </tr>
+            <tr>
+                <td>面积：</td>
+                <td><input type="text" id="area" class="init"></td>
+                <td><span id="areaSpan"></span> </td>
+            </tr>
+            <tr>
+                <td>首付：</td>
+                <td>
+                    <select id="downPayment" class="init">
+                        <option value="0.2">2成</option>
+                        <option value="0.3">3成</option>
+                        <option value="0.4">4成</option>
+                        <option value="0.5">5成</option>
+                        <option value="0.6">6成</option>
+                        <option value="0.7">7成</option>
+                        <option value="0.8">8成</option>
+                        <option value="0.9">9成</option>
+                    </select>
+                </td>
+                <td><span id="downPaymentSpan"></span> </td>
+            </tr>
+            <tr>
+                <td>利息：</td>
+                <td><input type="text" id="loanRate" class="init"> %</td>
+                <td><span id="loanRateSpan"></span> </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input type="button" value="Calculate" id="calculate">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div style="height: 20px;clear: both"></div>
+    <div id="div">
+        <table>
+            <tr>
+                <td>首付金额：</td>
+                <td><span id="downPaymentAmount"></span> </td>
+            </tr>
+            <tr>
+                <td>贷款总额：</td>
+                <td><span id="totalLoan"></span> </td>
+            </tr>
+            <tr>
+                <td>月付利息：</td>
+                <td><span id="monthlyPayInterest"></span> </td>
+            </tr>
+            <tr>
+                <td>月付租金：</td>
+                <td><span id="monthPayTheRent"></span> </td>
+            </tr>
+            <tr>
+                <td>月付物业费：</td>
+                <td><span id="monthlyPropertyFee"></span> </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -358,3 +358,40 @@ setTimeout(function,millisecond)
 /^正则$/.test(待检测数据)
 ```
 
+## 五、Window 对象
+
+```js
+window.alert();
+```
+
+确认框
+
+```html
+<a href="x" onclick="return window.confirm('确定删除吗')">删除</a>
+```
+
+窗口 IO
+
+```js
+var str = window.prompt("请输入你的名字","名字是？");
+document.write(str);
+```
+
+弹窗
+
+```js
+window.open("xxx.html");
+```
+
+关闭当前页面
+
+```js
+window.close();
+```
+
+重定向
+
+```js
+window.location = xxx;
+```
+

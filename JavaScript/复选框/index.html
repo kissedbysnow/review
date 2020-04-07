@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function show(){
+			var object = document.all("id");
+			var str = "";
+			for (var i = 0; i < object.length; i++) {
+				if(object[i].checked){
+					str+=object[i].value+"、";
+				}
+			}
+			console.log(str);
+		}
+		function selectAll(){
+			var object = document.all("id");
+			for (var i = 0; i < object.length; i++) {
+				object[i].checked = document.getElementById("selectAll").checked;
+			}
+		}
+		window.onload=function(){
+			document.getElementById("commit").addEventListener("click",show,false);
+			document.getElementById("selectAll").addEventListener("click",selectAll,false);
+		}
+	</script>
+</head>
+<body>
+	<input type="checkbox" id="id" value="A">1<br>
+	<input type="checkbox" id="id" value="B">2<br>
+	<input type="checkbox" id="id" value="C">3<br>		
+	<input type="checkbox" id="selectAll" value="A">全选<br>
+	<input type="button" id="commit" value="显示"><br>
+</body>
+</html>

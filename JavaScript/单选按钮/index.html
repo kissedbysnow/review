@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript">
+    function showSex() {
+        var sex = document.all("sex");
+        for (var i = 0; i < sex.length; i++) {
+            if (sex[i].checked) {
+                console.log("性别：" + sex[i].value)
+            }
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <input type="radio" name="sex" id="sex" value="男" checked="true">男
+    <input type="radio" name="sex" id="sex" value="女">女
+    <button onclick="showSex()">显示性别</button>
+</body>
+
+</html>

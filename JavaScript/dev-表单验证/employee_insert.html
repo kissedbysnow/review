@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>雇员管理操作</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/form.css">
+	<script type="text/javascript" src="js/employee.js"></script>
+	<script type="text/javascript" src="js/validateUtils.js"></script>
+</head>
+<body>
+	<form action="xx.html" method="post" onsubmit="return validate()">
+		<table border="1" cellpadding="5" cellspacing="0" width="100%" bgcolor="#F2F2F2">
+			<tr>
+				<td colspan="3">
+					<span class="title">增加雇员信息</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="20%"><strong>雇员编号：</strong></td>
+				<td width="40%"><input type="text" name="employeeNo" id="employeeNo" class="init" maxlength="4" size="4"></td>
+				<td width="40%"><span id="employeeNoSpan"></span></td>
+			</tr>
+			<tr>
+				<td><strong>雇员姓名：</strong></td>
+				<td><input type="text" name="employeeName" id="employeeName" class="init"></td>
+				<td><span id="employeeNameSpan"></span></td>
+			</tr>
+			<tr>
+				<td><strong>雇员职位：</strong></td>
+				<td><input type="text" name="position" id="position" class="init"></td>
+				<td><span id="positionSpan"></span></td>
+			</tr>
+			<tr>
+				<td><strong>雇佣日期：</strong></td>
+				<td><input type="text" name="hireDate" id="hireDate" class="init"></td>
+				<td><span id="hireDateSpan"></span></td>
+			</tr>
+			<tr>
+				<td><strong>基本工资：</strong></td>
+				<td><input type="text" name="baseWage" id="baseWage" class="init"></td>
+				<td><span id="baseWageSpan"></span></td>
+			</tr>
+			<tr>
+				<td><strong>佣金：</strong></td>
+				<td><input type="text" name="commission" id="commission" class="init"></td>
+				<td><span id="commissionSpan"></span></td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<input type="submit" value="提交" name="">
+					<input type="reset" value="重置" name="">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
