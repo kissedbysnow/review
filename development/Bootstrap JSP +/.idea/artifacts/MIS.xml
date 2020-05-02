@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="MIS">
+    <output-path>$PROJECT_DIR$/out/artifacts/MIS</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Login" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Login/web/Web" />
+    </root>
+  </artifact>
+</component>
