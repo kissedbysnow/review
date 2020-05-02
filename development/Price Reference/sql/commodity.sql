@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2020-04-29 19:43:26
+Date: 2020-04-29 21:34:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,13 +25,13 @@ CREATE TABLE `commodity` (
   `brand` char(16) NOT NULL COMMENT '品牌',
   `version` char(16) DEFAULT NULL COMMENT '型号',
   `description` char(32) DEFAULT NULL COMMENT '描述',
-  `theLowestPriceEver` float(5,2) DEFAULT NULL COMMENT '历史最低价格',
+  `lowest_price` float(5,2) DEFAULT NULL COMMENT '历史最低价格',
   `price` float(5,2) DEFAULT NULL COMMENT '吊牌价',
-  `discountPrice` float(5,2) DEFAULT NULL COMMENT '折后价格',
+  `discount_price` float(5,2) DEFAULT NULL COMMENT '折后价格',
   `deduction` float(5,2) DEFAULT NULL COMMENT '抵扣金额',
-  `onThePrice` float(5,2) DEFAULT NULL COMMENT '到手价格',
-  `updatedDate` date DEFAULT NULL COMMENT '更新日期',
-  `purchasingDate` date DEFAULT NULL COMMENT '购买日期',
+  `actual_payment` float(5,2) DEFAULT NULL COMMENT '到手价格',
+  `updated_date` date DEFAULT NULL COMMENT '更新日期',
+  `purchasing_date` date DEFAULT NULL COMMENT '购买日期',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 

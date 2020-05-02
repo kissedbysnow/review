@@ -1,10 +1,10 @@
-package cn.itcast.service.impl;
+package service.impl;
 
-import cn.itcast.dao.UserDao;
-import cn.itcast.dao.impl.UserDaoImpl;
-import cn.itcast.domain.PageBean;
-import cn.itcast.domain.User;
-import cn.itcast.service.UserService;
+import dao.UserDao;
+import dao.impl.UserDaoImpl;
+import domain.PageBean;
+import domain.User;
+import service.UserService;
 
 import java.util.List;
 import java.util.Map;
@@ -52,7 +52,6 @@ public class UserServiceImpl implements UserService {
                 dao.delete(Integer.parseInt(id));
             }
         }
-
     }
 
     @Override
@@ -67,22 +66,31 @@ public class UserServiceImpl implements UserService {
         //1.创建空的PageBean对象
         PageBean<User> pb = new PageBean<User>();
         //2.设置参数
-        pb.setCurrentPage(currentPage);
+
         pb.setRows(rows);
 
         //3.调用dao查询总记录数
         int totalCount = dao.findTotalCount(condition);
         pb.setTotalCount(totalCount);
-        //4.调用dao查询List集合
-        //计算开始的记录索引
-        int start = (currentPage - 1) * rows;
-        List<User> list = dao.findByPage(start,rows,condition);
-        pb.setList(list);
 
         //5.计算总页码
         int totalPage = (totalCount % rows)  == 0 ? totalCount/rows : (totalCount/rows) + 1;
         pb.setTotalPage(totalPage);
 
+        if(currentPage > totalPage) {
+            currentPage = totalPage;
+        }
+        pb.setCurrentPage(currentPage);
+
+        //4.调用dao查询List集合
+        //计算开始的记录索引
+        int start = (currentPage - 1) * rows;
+
+        if(start<0){//防止查询不到数据的时候，因 currentPage=0 导致 start = 负值
+            start=0;
+        }
+        List<User> list = dao.findByPage(start,rows,condition);
+        pb.setList(list);
 
         return pb;
     }

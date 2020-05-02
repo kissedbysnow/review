@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: org.aspectj:aspectjweaver:unknown">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jstl-impl.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

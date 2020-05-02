@@ -1,8 +1,8 @@
-package cn.itcast.dao.impl;
+package dao.impl;
 
-import cn.itcast.dao.UserDao;
-import cn.itcast.domain.User;
-import cn.itcast.util.JDBCUtils;
+import dao.UserDao;
+import domain.User;
+import util.JdbcUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class UserDaoImpl implements UserDao {
 
-    private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+    private JdbcTemplate template = new JdbcTemplate(JdbcUtils.getDataSource());
 
     @Override
     public List<User> findAll() {
@@ -129,8 +129,8 @@ public class UserDaoImpl implements UserDao {
         params.add(start);
         params.add(rows);
         sql = sb.toString();
-        System.out.println(sql);
-        System.out.println(params);
+        System.out.println("UserDaoImpl:"+sql);
+        System.out.println("UserDaoImpl:"+params);
 
         return template.query(sql,new BeanPropertyRowMapper<User>(User.class),params.toArray());
     }

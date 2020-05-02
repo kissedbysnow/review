@@ -1,7 +1,7 @@
-package cn.itcast.service;
+package service;
 
-import cn.itcast.domain.PageBean;
-import cn.itcast.domain.User;
+import domain.PageBean;
+import domain.User;
 
 import java.util.List;
 import java.util.Map;

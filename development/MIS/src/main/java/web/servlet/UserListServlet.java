@@ -1,8 +1,8 @@
-package cn.itcast.web.servlet;
+package web.servlet;
 
-import cn.itcast.domain.User;
-import cn.itcast.service.UserService;
-import cn.itcast.service.impl.UserServiceImpl;
+import domain.User;
+import service.UserService;
+import service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,9 +18,11 @@ public class UserListServlet extends HttpServlet {
         //1.调用UserService完成查询
         UserService service = new UserServiceImpl();
         List<User> users = service.findAll();
+
         //2.将list存入request域
         request.setAttribute("users",users);
         //3.转发到list.jsp
+//        request.getRequestDispatcher("/findUserByPageServlet").forward(request,response);
         request.getRequestDispatcher("/list.jsp").forward(request,response);
     }
 

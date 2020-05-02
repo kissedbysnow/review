@@ -1,8 +1,8 @@
-package cn.itcast.web.servlet;
+package web.servlet;
 
-import cn.itcast.domain.User;
-import cn.itcast.service.UserService;
-import cn.itcast.service.impl.UserServiceImpl;
+import domain.User;
+import service.UserService;
+import service.impl.UserServiceImpl;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.ServletException;
@@ -35,7 +35,6 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("login_msg","验证码错误！");
             //跳转登录页面
             request.getRequestDispatcher("/login.jsp").forward(request,response);
-
             return;
         }
 
@@ -49,8 +48,6 @@ public class LoginServlet extends HttpServlet {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-
-
         //5.调用Service查询
         UserService service = new UserServiceImpl();
         User loginUser = service.login(user);
@@ -67,12 +64,7 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("login_msg","用户名或密码错误！");
             //跳转登录页面
             request.getRequestDispatcher("/login.jsp").forward(request,response);
-
         }
-
-
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

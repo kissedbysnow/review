@@ -1,4 +1,4 @@
-package cn.itcast.domain;
+package domain;
 
 import java.util.List;
 

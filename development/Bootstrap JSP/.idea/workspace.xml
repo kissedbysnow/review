@@ -7,7 +7,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc79bdfb-b13c-4d3c-aff7-d336c0b4a284" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../CompilerPrinciple/CompilerPrinciple.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../CompilerPrinciple/CompilerPrinciple.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bootstrap JSP +/.idea/artifacts/Login_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bootstrap JSP +/.idea/artifacts/Login_war_exploded2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bootstrap JSP +/Login/Login.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bootstrap JSP +/Login/src/web/servlet/CheckCodeServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bootstrap JSP +/Login/web/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/artifacts/MIS.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__com_alibaba_druid_1_1_14.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__com_mchange_c3p0_0_9_5_pre10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__com_mchange_mchange_commons_java_0_2_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_25.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__org_aspectj_aspectjweaver_unknown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__org_springframework_spring_beans_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__org_springframework_spring_core_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__org_springframework_spring_tx_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/mysql.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/src/main/java/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/src/main/java/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/src/main/java/domain/PageBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/src/main/java/domain/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/src/main/java/jdbc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/src/main/java/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/src/main/java/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/src/main/java/util/JDBCUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/src/main/java/web/servlet/AddUserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/src/main/java/web/servlet/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/src/main/java/web/servlet/UpdateUserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/src/main/java/web/servlet/UserListServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/add.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/css/bootstrap-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/css/bootstrap-theme.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/css/bootstrap-theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/css/bootstrap-theme.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/bootstrap/js/npm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/js/jquery-1.12.4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/js/jquery-1.12.4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MIS/web/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/LoginModule/target/" />
@@ -20,6 +77,20 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
@@ -31,17 +102,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Login/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" selection-start-line="9" selection-end-line="18" selection-end-column="7" />
+            <state relative-caret-position="100">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Bootstrap JSP.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="300">
+                <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Login/web/check.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+            <state relative-caret-position="750">
+              <caret line="30" column="51" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Login/web/check-old.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="950">
+              <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -96,9 +188,15 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="950" />
-    <option name="width" value="979" />
+    <option name="width" value="980" />
     <option name="height" value="1090" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -109,7 +207,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -128,11 +226,18 @@
               <item name="Login" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Bootstrap JSP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Bootstrap JSP" type="462c0819:PsiDirectoryNode" />
+              <item name="Login" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -267,11 +372,15 @@
       <workItem from="1586412590279" duration="2001000" />
       <workItem from="1586435586598" duration="3206000" />
       <workItem from="1586512922564" duration="33000" />
+      <workItem from="1587731410378" duration="65000" />
+      <workItem from="1587800039109" duration="71000" />
+      <workItem from="1587811936010" duration="20000" />
+      <workItem from="1587822950466" duration="1574000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15862000" />
+    <option name="totallyTimeSpent" value="17592000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -284,8 +393,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49865952" visible="true" weight="0.1494638" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49865952" visible="true" weight="0.1575067" />
       <window_info id="Structure" order="1" sideWeight="0.5013405" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -313,16 +423,20 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.3297587" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Database" order="7" weight="0.3297587" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/LoginModule/LoginModule.iml" />
@@ -353,24 +467,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Login/web/check-old.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Login/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" selection-start-line="9" selection-end-line="18" selection-end-column="7" />
+        <state relative-caret-position="100">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Login/web/check.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+        <state relative-caret-position="750">
+          <caret line="30" column="51" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Login/web/check-old.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="950">
+          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bootstrap JSP.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="300">
+            <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

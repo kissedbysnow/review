@@ -1,6 +1,7 @@
-package cn.itcast.domain;
+package domain;
 
 public class User {
+    //用户信息
     private int id;
     private String name;
     private String gender;
@@ -9,6 +10,7 @@ public class User {
     private String qq;
     private String email;
 
+    //账号信息
     private String username;
     private String password;
 

@@ -1,6 +1,6 @@
-package cn.itcast.dao;
+package dao;
 
-import cn.itcast.domain.User;
+import domain.User;
 
 import java.util.List;
 import java.util.Map;
