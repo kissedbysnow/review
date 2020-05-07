@@ -1,9 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.aspectj:aspectjweaver:unknown">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jstl-impl.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjweaver/unknown/aspectjweaver-unknown.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjweaver/unknown/aspectjweaver-unknown-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjweaver/unknown/aspectjweaver-unknown-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

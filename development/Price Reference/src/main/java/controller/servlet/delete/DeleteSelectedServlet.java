@@ -1,6 +1,5 @@
-package controller.servlet.read;
+package controller.servlet.delete;
 
-import entity.Commodity;
 import service.CommodityService;
 import service.impl.CommodityServiceImpl;
 
@@ -10,19 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/readServlet")
-public class ReadServlet extends HttpServlet {
+@WebServlet("/deleteSelectedServlet")
+public class DeleteSelectedServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.获取所有id
+        String[] ids = request.getParameterValues("checkBoxChild");
+        //2.调用service删除
 
-        CommodityService commodityService = new CommodityServiceImpl();
-        List<Commodity> commodities = commodityService.read();
+        CommodityService cS = new CommodityServiceImpl();
+        cS.deleteSelected(ids);
 
-        request.setAttribute("commodities",commodities);
-
-        //        request.getRequestDispatcher("/findUserByPageServlet").forward(request,response);
-        request.getRequestDispatcher("/read.jsp").forward(request,response);
+        //3.跳转查询所有Servlet
+        response.sendRedirect(request.getContextPath()+"/readByPageServlet");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

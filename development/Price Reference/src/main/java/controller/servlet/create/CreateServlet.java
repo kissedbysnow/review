@@ -20,10 +20,11 @@ public class CreateServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         //2.获取参数
         Map<String, String[]> map = request.getParameterMap();
+
         //3.封装对象
         Commodity c = new Commodity();
         try {
-            BeanUtils.populate(c,map);
+            BeanUtils.populate(c, map);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -35,7 +36,7 @@ public class CreateServlet extends HttpServlet {
         cS.create(c);
 
         //5.跳转到userListServlet
-        response.sendRedirect(request.getContextPath()+"/readServlet");
+        response.sendRedirect(request.getContextPath() + "/readServlet");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

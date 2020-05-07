@@ -32,6 +32,33 @@
                 location.href = "${pageContext.request.contextPath}/deleteServlet?id=" + id;
             }
         }
+        window.onload = function () {
+
+            //删除选中按钮 添加单机事件
+            document.getElementById("deleteSelected").onclick = function () {
+                //判断是否有选中条目
+                var boolean = false;
+                var checkBoxS = document.getElementsByName("checkBoxChild");
+                for (var i = 0; i < checkBoxS.length; i++) {
+                    if (checkBoxS[i].checked) {
+                        boolean = true;
+                        break;
+                    }
+                }
+                //boolean 放 confirm() 前面，没有复选框被选中的话，将不会弹窗
+                if (boolean && confirm("确认删除选中")) {
+                    document.getElementById("form").submit();
+                }
+            };
+
+            //复选框功能优化
+            document.getElementById("checkBoxParent").onclick = function () {
+                var checkBoxS = document.getElementsByName("checkBoxChild");
+                for (var i = 0; i < checkBoxS.length; i++) {
+                    checkBoxS[i].checked = this.checked;
+                }
+            }
+        }
     </script>
 </head>
 <body>
@@ -74,13 +101,13 @@
 
     <div style="float:right;margin: 5px;">
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/create.jsp">Create</a>
-        <a class="btn btn-primary" href="javascript:void(0);" id="delSelected">Delete the selected</a>
+        <a class="btn btn-primary" href="javascript:void(0);" id="deleteSelected">Delete the selected</a>
     </div>
 
-    <form>
+    <form id="form" action="${pageContext.request.contextPath}/deleteSelectedServlet" method="post">
         <table border="1" class="table table-bordered table-hover">
             <tr class="success">
-                <th><input type="checkbox"></th>
+                <th><input type="checkbox" id="checkBoxParent" ></th>
                 <th>ID</th>
                 <th>Classify</th>
                 <th>Brand</th>
@@ -105,15 +132,12 @@
                 <th>CP</th>
                 <th>UP</th>
 
-                <th>Updated<br>
-                    Date</th>
-                <th>Purchasing<br>
-                    Date</th>
+                <th>Date</th>
                 <th>Operation</th>
             </tr>
             <c:forEach items="${commodities}" var="commodity" varStatus="s">
                 <tr>
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" name="checkBoxChild" value="${commodity.id}"></td>
                     <td>${commodity.id}</td>
                     <td>${commodity.classify}</td>
                     <td>${commodity.brand}</td>
@@ -134,8 +158,8 @@
                     <td>${commodity.costPerformance3}</td>
                     <td>${commodity.unitPrice3}</td>
 
-                    <td>${commodity.updatedDate}</td>
-                    <td>${commodity.purchasingDate}</td>
+                    <td>${commodity.date}</td>
+
                     <td>
                         <a class="btn btn-warning btn-sm" href="${pageContext.request.contextPath}/readByIdServlet?id=${commodity.id}">Update</a>
                         <a class="btn btn-danger btn-sm" href="javascript:deleteUser(${commodity.id});">Delete</a>
@@ -144,6 +168,77 @@
             </c:forEach>
         </table>
     </form>
+
+    <div>
+        <div style="float:left;">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <c:if test="${page.currentPage == 1}">
+                    <li class="disabled">
+                        </c:if>
+                        <c:if test="${page.currentPage != 1}">
+                    <li>
+                        </c:if>
+                        <a href="${pageContext.request.contextPath}/readByPageServlet?currentPage=${page.currentPage - 1}&rows=${page.rows}
+                        &classify=${condition.classify[0]}&brand=${condition.brand[0]}&version=${condition.version[0]}&description=${condition.description[0]}"
+                           aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                    <c:forEach begin="1" end="${page.totalPage}" var="i">
+                        <c:if test="${page.currentPage == i}">
+                            <li class="active"><a
+                                    href="${pageContext.request.contextPath}/readByPageServlet?currentPage=${i}&rows=${page.rows}
+                                    &classify=${condition.classify[0]}&brand=${condition.brand[0]}&version=${condition.version[0]}&description=${condition.description[0]}">${i}</a>
+                            </li>
+                        </c:if>
+                        <c:if test="${page.currentPage != i}">
+                            <li>
+                                <a href="${pageContext.request.contextPath}/readByPageServlet?currentPage=${i}&rows=${page.rows}
+                                &classify=${condition.classify[0]}&brand=${condition.brand[0]}&version=${condition.version[0]}&description=${condition.description[0]}">${i}</a>
+                            </li>
+                        </c:if>
+                    </c:forEach>
+
+                    <c:if test="${page.currentPage != page.totalPage}">
+                    <li>
+                        </c:if>
+                        <c:if test="${page.currentPage == page.totalPage}">
+                    <li class="disabled">
+                        </c:if>
+                        <a href="${pageContext.request.contextPath}/readByPageServlet?currentPage=${page.currentPage+1}&rows=${page.rows}
+                        &classify=${condition.classify[0]}&brand=${condition.brand[0]}&version=${condition.version[0]}&description=${condition.description[0]}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    <span style="font-size: 25px;margin-left: 5px;">
+                    共 ${page.totalRows} 条记录，共 ${page.totalPage} 页
+                </span>
+
+                </ul>
+            </nav>
+        </div>
+        <div style="float:right;">
+            <select onchange="javascript:location.href=this.value;">
+                <c:forEach begin="10" end="25" step="3" var="i">
+                    <c:if test="${page.rows == i}">
+                        <option selected
+                                value="${pageContext.request.contextPath}/readByPageServlet?currentPage=${page.currentPage}&rows=${i}
+                                &classify=${condition.classify[0]}&brand=${condition.brand[0]}&version=${condition.version[0]}&description=${condition.description[0]}">${i}
+                            条/页
+                        </option>
+                    </c:if>
+                    <c:if test="${page.rows != i}">
+                        <option value="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${page.currentPage}&rows=${i}
+                        &classify=${condition.classify[0]}&brand=${condition.brand[0]}&version=${condition.version[0]}&description=${condition.description[0]}">${i}
+                            条/页
+                        </option>
+                    </c:if>
+                </c:forEach>
+            </select>
+        </div>
+    </div>
 </div>
 </body>
 </html>

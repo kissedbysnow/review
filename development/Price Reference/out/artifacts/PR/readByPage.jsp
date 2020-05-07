@@ -32,6 +32,33 @@
                 location.href = "${pageContext.request.contextPath}/deleteServlet?id=" + id;
             }
         }
+        window.onload = function () {
+
+            //删除选中按钮 添加单机事件
+            document.getElementById("deleteSelected").onclick = function () {
+                //判断是否有选中条目
+                var boolean = false;
+                var checkBoxS = document.getElementsByName("checkBoxChild");
+                for (var i = 0; i < checkBoxS.length; i++) {
+                    if (checkBoxS[i].checked) {
+                        boolean = true;
+                        break;
+                    }
+                }
+                //boolean 放 confirm() 前面，没有复选框被选中的话，将不会弹窗
+                if (boolean && confirm("确认删除选中")) {
+                    document.getElementById("form").submit();
+                }
+            };
+
+            //复选框功能优化
+            document.getElementById("checkBoxParent").onclick = function () {
+                var checkBoxS = document.getElementsByName("checkBoxChild");
+                for (var i = 0; i < checkBoxS.length; i++) {
+                    checkBoxS[i].checked = this.checked;
+                }
+            }
+        }
     </script>
 </head>
 <body>
@@ -75,13 +102,13 @@
 
     <div style="float:right;margin: 5px;">
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/create.jsp">Create</a>
-        <a class="btn btn-primary" href="javascript:void(0);" id="delSelected">Delete the selected</a>
+        <a class="btn btn-danger" href="javascript:void(0);" id="deleteSelected">Delete the Selected</a>
     </div>
 
-    <form>
+    <form id="form" action="${pageContext.request.contextPath}/deleteSelectedServlet" method="post">
         <table border="1" class="table table-bordered table-hover">
             <tr class="success">
-                <th><input type="checkbox"></th>
+                <th><input type="checkbox" id="checkBoxParent"></th>
                 <th>ID</th>
                 <th>Classify</th>
                 <th>Brand</th>
@@ -111,8 +138,8 @@
             </tr>
             <c:forEach items="${page.list}" var="commodity" varStatus="s">
                 <tr>
-                    <td><input type="checkbox"></td>
-                    <td>${commodity.id}</td>
+                    <td><input type="checkbox" name="checkBoxChild" value="${commodity.id}"></td>
+                    <td>${s.count}</td>
                     <td>${commodity.classify}</td>
                     <td>${commodity.brand}</td>
                     <td>${commodity.version}</td>

@@ -1,9 +1,10 @@
-package web.servlet;
+package controller.servlet.read;
 
-import domain.PageBean;
-import domain.User;
-import service.UserService;
-import service.impl.UserServiceImpl;
+
+import entity.Commodity;
+import entity.PageBean;
+import service.CommodityService;
+import service.impl.CommodityServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,37 +14,40 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
 
-@WebServlet("/findUserByPageServlet")
-public class FindUserByPageServlet extends HttpServlet {
+@WebServlet("/readByPageServlet")
+public class readByPageServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
+
+        request.setCharacterEncoding("UTF-8");
 
         //1.获取参数
         String currentPage = request.getParameter("currentPage");//当前页码
         String rows = request.getParameter("rows");//每页显示条数
 
-        if(currentPage == null || "".equals(currentPage)){
+        if (currentPage == null || "".equals(currentPage)) {
             currentPage = "1";
         }
-        if(rows == null || "".equals(rows)){
+        if (rows == null || "".equals(rows)) {
             rows = "10";
         }
 
-        System.out.println(rows);
+        System.out.println("read By Page Servlet ==> rows:" + rows);
         //获取条件查询参数
         Map<String, String[]> condition = request.getParameterMap();
 
         //2.调用service查询
-        UserService service = new UserServiceImpl();
-        PageBean<User> pb = service.findUserByPage(currentPage,rows,condition);
 
-        System.out.println("FindUserByPageServlet.java:"+pb);
+        CommodityService cS = new CommodityServiceImpl();
+        PageBean<Commodity> page = cS.readByPage(currentPage, rows, condition);
+
+        System.out.println("readByPageServlet.java:" + page);
 
         //3.将PageBean存入request
-        request.setAttribute("pb",pb);
-        request.setAttribute("condition",condition);//将查询条件存入request，返回给前端使用
+        request.setAttribute("page", page);
+        request.setAttribute("condition", condition);//将查询条件存入request，返回给前端使用
+
         //4.转发到list.jsp
-        request.getRequestDispatcher("/list.jsp").forward(request,response);
+        request.getRequestDispatcher("/readByPage.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

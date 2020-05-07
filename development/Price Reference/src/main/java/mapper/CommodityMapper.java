@@ -3,6 +3,7 @@ package mapper;
 import entity.Commodity;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CommodityMapper {
 
@@ -15,4 +16,12 @@ public interface CommodityMapper {
     public Commodity readById(int id);
 
     public void update(Commodity commodity);
+
+
+    public List<Commodity> readByCriteria(String criteria);
+
+
+    int queryTotalRows(Map<String, String[]> condition);
+
+    List<Commodity> readByPage(int start, int pageSize, Map<String, String[]> condition);
 }

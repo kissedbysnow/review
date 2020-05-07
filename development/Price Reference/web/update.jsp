@@ -25,7 +25,7 @@
             var year = date.getFullYear();
             var month = date.getMonth() + 1;
             var day = date.getDate();
-            document.getElementById("updatedDate").value = year + "-" + month + "-" + day;
+            document.getElementById("date").value = year + "-" + month + "-" + day;
         }
 
         function delayTrigger() {//延时触发
@@ -81,10 +81,18 @@
         </div>
 
         <div class="form-group">
-            <label for="lowestPrice" class="col-sm-2 control-label" style="color: green">Lowest Price</label>
+            <label for="weightCapacity" class="col-sm-2 control-label">Weight or Capacity</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="lowestPrice" name="lowestPrice"
-                       value="${commodity.lowestPrice}" placeholder="lowest price">
+                <input type="text" class="form-control" id="weightCapacity" name="weightCapacity"
+                       value="${commodity.weightCapacity}" placeholder="weight or capacity">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="quantity" class="col-sm-2 control-label">Quantity</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="quantity" name="quantity"
+                       value="${commodity.quantity}" placeholder="quantity">
             </div>
         </div>
 
@@ -97,18 +105,10 @@
         </div>
 
         <div class="form-group">
-            <label for="discountPrice" class="col-sm-2 control-label">Discount Price</label>
+            <label for="lowestPrice" class="col-sm-2 control-label" style="color: green">Lowest Price</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="discountPrice" name="discountPrice"
-                       value="${commodity.discountPrice}" placeholder="discount price">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="deduction" class="col-sm-2 control-label">Deduction</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="deduction" name="deduction" value="${commodity.deduction}"
-                       placeholder="deduction">
+                <input type="text" class="form-control" id="lowestPrice" name="lowestPrice"
+                       value="${commodity.lowestPrice}" placeholder="lowest price">
             </div>
         </div>
 
@@ -121,18 +121,10 @@
         </div>
 
         <div class="form-group">
-            <label for="updatedDate" class="col-sm-2 control-label">Updated Date</label>
+            <label for="date" class="col-sm-2 control-label">Date</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="updatedDate" name="updatedDate"
-                       value="${commodity.updatedDate}" placeholder="updated date">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="purchasingDate" class="col-sm-2 control-label">Purchasing Date</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="purchasingDate" name="purchasingDate"
-                       value="${commodity.purchasingDate}" placeholder="purchasing date">
+                <input type="text" class="form-control" id="date" name="date"
+                       value="${commodity.date}" placeholder="date">
             </div>
         </div>
 

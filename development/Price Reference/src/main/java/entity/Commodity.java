@@ -9,13 +9,22 @@ public class Commodity {
     private String brand;
     private String version;
     private String description;
-    private Float lowestPrice;
+    private Integer weightCapacity;
+    private Integer quantity;
+
     private Float price;
-    private Float discountPrice;
-    private Float deduction;
+    private Float costPerformance1;
+    private Float unitPrice1;
+
+    private Float lowestPrice;
+    private Float costPerformance2;
+    private Float unitPrice2;
+
     private Float actualPayment;
-    private Date updatedDate;
-    private Date purchasingDate;
+    private Float costPerformance3;
+    private Float unitPrice3;
+
+    private Date date;
 
     public int getId() {
         return id;
@@ -57,12 +66,20 @@ public class Commodity {
         this.description = description;
     }
 
-    public Float getLowestPrice() {
-        return lowestPrice;
+    public Integer getWeightCapacity() {
+        return weightCapacity;
     }
 
-    public void setLowestPrice(Float lowestPrice) {
-        this.lowestPrice = lowestPrice;
+    public void setWeightCapacity(Integer weightCapacity) {
+        this.weightCapacity = weightCapacity;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public Float getPrice() {
@@ -73,20 +90,44 @@ public class Commodity {
         this.price = price;
     }
 
-    public Float getDiscountPrice() {
-        return discountPrice;
+    public Float getCostPerformance1() {
+        return costPerformance1;
     }
 
-    public void setDiscountPrice(Float discountPrice) {
-        this.discountPrice = discountPrice;
+    public void setCostPerformance1(Float costPerformance1) {
+        this.costPerformance1 = costPerformance1;
     }
 
-    public Float getDeduction() {
-        return deduction;
+    public Float getUnitPrice1() {
+        return unitPrice1;
     }
 
-    public void setDeduction(Float deduction) {
-        this.deduction = deduction;
+    public void setUnitPrice1(Float unitPrice1) {
+        this.unitPrice1 = unitPrice1;
+    }
+
+    public Float getLowestPrice() {
+        return lowestPrice;
+    }
+
+    public void setLowestPrice(Float lowestPrice) {
+        this.lowestPrice = lowestPrice;
+    }
+
+    public Float getCostPerformance2() {
+        return costPerformance2;
+    }
+
+    public void setCostPerformance2(Float costPerformance2) {
+        this.costPerformance2 = costPerformance2;
+    }
+
+    public Float getUnitPrice2() {
+        return unitPrice2;
+    }
+
+    public void setUnitPrice2(Float unitPrice2) {
+        this.unitPrice2 = unitPrice2;
     }
 
     public Float getActualPayment() {
@@ -97,37 +138,27 @@ public class Commodity {
         this.actualPayment = actualPayment;
     }
 
-    public Date getUpdatedDate() {
-        return updatedDate;
+    public Float getCostPerformance3() {
+        return costPerformance3;
     }
 
-    public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
+    public void setCostPerformance3(Float costPerformance3) {
+        this.costPerformance3 = costPerformance3;
     }
 
-    public Date getPurchasingDate() {
-        return purchasingDate;
+    public Float getUnitPrice3() {
+        return unitPrice3;
     }
 
-    public void setPurchasingDate(Date purchasingDate) {
-        this.purchasingDate = purchasingDate;
+    public void setUnitPrice3(Float unitPrice3) {
+        this.unitPrice3 = unitPrice3;
     }
 
-    @Override
-    public String toString() {
-        return "Commodity{" +
-                "id=" + id +
-                ", classify='" + classify + '\'' +
-                ", brand='" + brand + '\'' +
-                ", version='" + version + '\'' +
-                ", description='" + description + '\'' +
-                ", lowestPrice=" + lowestPrice +
-                ", price=" + price +
-                ", discountPrice=" + discountPrice +
-                ", deduction=" + deduction +
-                ", actualPayment=" + actualPayment +
-                ", updatedDate=" + updatedDate +
-                ", purchasingDate=" + purchasingDate +
-                '}';
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

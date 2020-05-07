@@ -6,35 +6,11 @@ import java.util.List;
  * 分页对象
  */
 public class PageBean<T> {
-    private int totalCount; // 总记录数
-    private int totalPage ; // 总页码
-    private List<T> list ; // 每页的数据
-    private int currentPage ; //当前页码
-    private int rows;//每页显示的记录数
-
-    public int getTotalCount() {
-        return totalCount;
-    }
-
-    public void setTotalCount(int totalCount) {
-        this.totalCount = totalCount;
-    }
-
-    public int getTotalPage() {
-        return totalPage;
-    }
-
-    public void setTotalPage(int totalPage) {
-        this.totalPage = totalPage;
-    }
-
-    public List<T> getList() {
-        return list;
-    }
-
-    public void setList(List<T> list) {
-        this.list = list;
-    }
+    private int currentPage ;   //当前页码
+    private int rows;           //每页显示的记录数
+    private int totalPage ;     // 总页码
+    private int totalRows;     // 总记录数
+    private List<T> list ;      // 每页的数据
 
     public int getCurrentPage() {
         return currentPage;
@@ -52,14 +28,38 @@ public class PageBean<T> {
         this.rows = rows;
     }
 
+    public int getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
+    }
+
+    public int getTotalRows() {
+        return totalRows;
+    }
+
+    public void setTotalRows(int totalRows) {
+        this.totalRows = totalRows;
+    }
+
+    public List<T> getList() {
+        return list;
+    }
+
+    public void setList(List<T> list) {
+        this.list = list;
+    }
+
     @Override
     public String toString() {
         return "PageBean{" +
-                "totalCount=" + totalCount +
-                ", totalPage=" + totalPage +
-                ", list=" + list +
-                ", currentPage=" + currentPage +
+                "currentPage=" + currentPage +
                 ", rows=" + rows +
+                ", totalPage=" + totalPage +
+                ", totalRows=" + totalRows +
+                ", list=" + list +
                 '}';
     }
 }
