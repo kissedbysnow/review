@@ -100,29 +100,51 @@ public class CommodityServiceImpl implements CommodityService {
         Float lowestPrice = (Float) defaultIsNull(c.getLowestPrice());
         Float actualPayment = (Float) defaultIsNull(c.getActualPayment());
 
-        if (quantity != null) {
-            if (quantity > 1) {
-                if (price != null) {
-                    c.setUnitPrice1(price / quantity);
+
+        if (price!=null){
+            if (quantity!=null){
+                // 单价 p/q
+                c.setUnitPrice1(price/quantity);
+                if (weightCapacity!=null){
+                    // 性价比 w*q/p
+                    c.setCostPerformance1((float) round(weightCapacity*quantity/price,2));
                 }
-                if (lowestPrice != null) {
-                    c.setUnitPrice2(lowestPrice / quantity);
-                }
-                if (actualPayment != null) {
-                    c.setUnitPrice3(actualPayment / quantity);
+            }else{
+                if (weightCapacity!=null){
+                    // 性价比 w/p
+                    c.setCostPerformance1((float) round(weightCapacity/price,2));
                 }
             }
-            if (weightCapacity != null) {
-                int grossWC = quantity * weightCapacity;
+        }
 
-                if (price != null) {
-                    c.setCostPerformance1((float) round(grossWC / price, 2));
+        if (lowestPrice!=null){
+            if (quantity!=null){
+                // 单价 p/q
+                c.setUnitPrice2(lowestPrice/quantity);
+                if (weightCapacity!=null){
+                    // 性价比 w*q/p
+                    c.setCostPerformance2((float) round(weightCapacity*quantity/lowestPrice,2));
                 }
-                if (lowestPrice != null) {
-                    c.setCostPerformance2((float) round(grossWC / lowestPrice, 2));
+            }else{
+                if (weightCapacity!=null){
+                    // 性价比 w/p
+                    c.setCostPerformance2((float) round(weightCapacity/lowestPrice,2));
                 }
-                if (actualPayment != null) {
-                    c.setCostPerformance3((float) round(grossWC / actualPayment, 2));
+            }
+        }
+
+        if (actualPayment!=null){
+            if (quantity!=null){
+                // 单价 p/q
+                c.setUnitPrice3(actualPayment/quantity);
+                if (weightCapacity!=null){
+                    // 性价比 w*q/p
+                    c.setCostPerformance3((float) round(weightCapacity*quantity/actualPayment,2));
+                }
+            }else{
+                if (weightCapacity!=null){
+                    // 性价比 w/p
+                    c.setCostPerformance3((float) round(weightCapacity/actualPayment,2));
                 }
             }
         }
@@ -142,6 +164,8 @@ public class CommodityServiceImpl implements CommodityService {
         }
         return o;
     }
+
+
 
     //四舍五入工具类 round(1.123,2)=1.12
     public double round(float number, int scale) {

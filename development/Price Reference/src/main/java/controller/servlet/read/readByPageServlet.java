@@ -25,7 +25,7 @@ public class readByPageServlet extends HttpServlet {
         String rows = request.getParameter("rows");//每页显示条数
 
         if (currentPage == null || "".equals(currentPage)) {
-            currentPage = "1";
+            currentPage = "1000";
         }
         if (rows == null || "".equals(rows)) {
             rows = "10";

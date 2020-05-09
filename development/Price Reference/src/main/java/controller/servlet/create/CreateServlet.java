@@ -36,7 +36,7 @@ public class CreateServlet extends HttpServlet {
         cS.create(c);
 
         //5.跳转到userListServlet
-        response.sendRedirect(request.getContextPath() + "/readServlet");
+        response.sendRedirect(request.getContextPath() + "/readByPageServlet");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

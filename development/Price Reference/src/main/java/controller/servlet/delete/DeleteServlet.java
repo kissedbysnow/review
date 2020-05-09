@@ -19,7 +19,7 @@ public class DeleteServlet extends HttpServlet {
         CommodityServiceImpl cS = new CommodityServiceImpl();
         cS.delete(id);
         //3.跳转到查询所有Servlet
-        response.sendRedirect(request.getContextPath()+"/readServlet");
+        response.sendRedirect(request.getContextPath()+"/readByPageServlet");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
