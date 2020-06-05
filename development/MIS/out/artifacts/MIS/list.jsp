@@ -128,6 +128,7 @@
             </c:forEach>
         </table>
     </form>
+
     <div>
         <div style="float:left;">
             <nav aria-label="Page navigation">
