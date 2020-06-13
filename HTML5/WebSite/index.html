@@ -1,11 +1,680 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<meta charset="utf-8">
+<title>首页</title>
+<style>
+	body{
+		font-size:14px;
+		font-family:"Times New Roman", Times, serif;
+		margin:0;
+		padding:0;
+	}
+	
+	a{
+		color:#333;
+		text-decoration:none;
+	}
+	
+	h4{
+		color:#666666;
+	}
+	
+	/*头部相关*/
+	nav,header,footer,#mainContent{
+		clear:both;
+		width:1000px;
+		margin:0 auto;
+	}
+	
+	header div img{
+		float:left;
+		height:60px;
+	}
+	
+	#hdes{
+		float:left;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:30px;
+		color:black;
+		font-weight:bold;
+	}
+	
+	#hlogin{
+		margin-top:50px;
+		float:right;
+	}
+	
+	/*导航相关*/
+	nav{
+		clear:both;
+	}
+	
+	nav ul{
+		list-style:none;
+		background-color:#666666;
+		height:30px;
+		padding-left:0px;
+		color:#FFFFFF;
+	}
+	
+	nav ul li{
+		
+		width:80px;
+		float:left;
+		line-height:30px;
+		text-align:center;
+	}
+	
+	
+	nav ul li a{
+		color:#FFF;
+		text-decoration:none;
+	}
+	
+	/*左侧*/
+	#left{
+		width:700px;
+		float:left;
+	}
+		
+	#right{
+		width:300px;
+		float:left;
+	}
+	
+	#left section:nth-child(1) img{
+		width:680px;
+		height:300px;
+	}
+	
+	/*左侧下部*/
+	
+	#bottom{
+	}
+	
+	#bottom header{
+		padding:10px;
+	}
+	
+	#bottom figure{
+		width:640px;
+		height:150px;
+	}
+	
+	#bottom figure img{
+		clear:both;
+		width:200px;
+		height:150px;
+		float:left;
+		margin-left:-20px;
+		margin-right:10px;
+	}
+	
+	#bottom figure figcaption{
+		width:400px;
+		height:150px;
+		float:left;
+	}
+	
+	/*右侧*/
+	#right aside{
+		width:270px;
+		height:300px;
+		border:1px solid #999;
+		padding:15px;
+		margin-top:15px;
+		
+	}
+	
+	#right h1{
+		font-size:16px;
+		font-weight:bold;
+		margin-bottom:8px;
+	}
+	
+	#right form p{
+		font-size:12px;
+		margin-bottom:20px;
+		width:270px;
+		border-bottom:1px solid #b7ddf2;
+		padding-bottom:10px;
+	}
+	
+	#right aside:nth-child(1){
+		height:250px;
+	}
+	
+	#userInfo{
+		display:none;
+		height:20px;
+		border:1px solid #CCC;
+		border-radius:20px;
+		line-height:20px;
+		text-align:center;
+		font-size:14px;
+		background:#CCC;
+		font-family:楷体;
+	}
+
+	
+	
+	/*登录相关*/
+	
+	#login label{
+		display:block;
+		width:60px;
+		text-align:right;
+		float:left;
+		margin-top:10px;
+		height:30px;
+		padding-top:10px;
+		box-sizing:border-box;
+		font-size:12px;
+	}
+	
+	#login input{
+		width:200px;
+		float:left;
+		font-size:12px;
+		border:1px solid #aacfe4;
+		margin-top:10px;
+		height:30px;
+	}
+	
+	#login input[type=button]{
+		margin-left:60px;
+		width:125px;
+		height:31px;
+		background:#666666;
+		line-height:31px;
+		color:#FFFFFF;
+		font-size:12px;
+		font-weight:bold;
+	}
+	
+	
+	#login input:active{
+		outline:thin solid #aaa;
+	}
+	
+	/*热点新闻*/
+	#hotNews{
+		width:300px;
+		height:200px;
+	}
+		
+	#hotNews ul li{
+		height:35px;
+		padding-bottom:10px;
+		margin-left:-25px;
+		font-size:13px;
+	}
+	
+	footer{
+		text-align:center;
+	}
+	
+	
+	footer p{
+		clear:left;
+		background:#999999;
+		height:30px;
+		line-height:30px;
+	}
+
+</style>
 </head>
 
 <body>
-<p>&nbsp;</p>
+	<header>
+    	<div>
+        	<img src="style/images/logo.png" />
+            <p id="hdes">HTML5+CSS3</p>
+            <p id="hlogin">
+                <a href="index.html" target="_parent">登录</a>
+                <a href="register.html" target="_parent">注册</a>
+            </p>
+        </div>
+    </header>
+    <nav>
+    	<ul>
+        	<li><a href="index.html" target="_parent">首页</a></li>
+            <li><a  target="_parent">精彩视频</a></li>
+            <li><a  target="_parent">文章发布</a></li>
+        </ul>
+    </nav>
+    <div id="mainContent">
+    	<div id="left">
+        	<section>
+            	<img src="style/images/animate1.jpg" />
+            </section>
+            <section id="bottom">
+            	<header>最新精彩内容</header>
+                <figure>
+                	<a href="graffiWall.html"><img src="style/images/pic1.png"/></a>
+                    <figcaption>
+                    	<h3><a href="graffiWall.html">漂亮的涂鸦墙</a></h3>                          
+                        <p>CSS3所提供的动画功能，主要包括变形、转换和动画技术。变形是最基本的动画形式，它主要通过CSS控制元素样式属性值的变化来实现</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                	<a href="reflection.html"><img src="style/images/reflection.jpg"/></a>
+                    <figcaption>
+                    	<h3><a href="reflection.html">美丽的倒影</a></h3>                           
+                        <p>CSS3新增了CSS Reflections模块，运行CSS设计倒影效果，这种效果在以前只能通过图片软件进行设计，CSS Reflections简化了这种操作，允许用户只使用样式就可以实现倒影效果</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                	<a href="wonderfulLife.html"><img src="style/images/wflife.jpg"/></a>
+                    <figcaption>
+                    	<h3><a href="wonderfulLife.html">云计算-未来精彩生活</a></h3>                         
+                        <p>HTML5 video和audio两个元素的出现让HTML5的媒体应用多了选择，开发人员不必使用插件就能播放音频和视频</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                	<a href="scanBig.html"><img src="style/images/cover.jpg"/></a>
+                    <figcaption>
+                    	<h3><a href="scanBig.html">浏览大图</a></h3>                           
+                        <p>移动浏览大图哦</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                	<img src="style/images/reflection.jpg"/>
+                    <figcaption>
+                    	<h3><a href="reflection.html">教你制作音乐播放器</a></h3>                           
+                            <p>教你制作音乐播制作音乐播放器</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                	<img src="style/images/clock.jpg"/>
+                    <figcaption>
+                    	<h3><a href="reflection.html">绘制时钟</a></h3>                           
+                            <p>教你如何绘制时钟</p>
+                    </figcaption>
+                </figure>
+                
+            </section>          
+        </div>
+        <div id="right">
+        	<form>
+            <aside>
+            	<header>
+                	<h1>登录</h1>
+                    <p>请准确填写个人信息</p>
+                </header>
+                <div id="login">
+                	<label>用户名：</label>
+                    <input name="userName" id="userName" type="text"/>
+                    <label>密码：</label>
+                    <input name="password" id="password" type="password"/>             
+                    <input type="button" value="登录" onClick="Login()"/>
+                </div>
+            </aside>
+            </form>
+            <aside id="userInfo">
+            	<span></span>
+            	<a href="javascript:void(0)">退出</a>
+            </aside>
+
+            <aside id="hotNews">
+            	<header><h3>热点文章</h3></header>
+                <ul>
+                	<li><a href="#">网易高管解读第一季度财报：手游营收占比20%</a></li>
+                    <li><a href="#">昆山建成省内首家市场主体登记信息互联互通平台</a></li>
+                    <li><a href="#">中国电信发布“互联网 ”行动白皮书</a></li>
+                    <li><a href="#">“当日达”之后快递业又推“次晨达”</a></li>
+                    <li><a href="#">乐视再起诉暴风科技盗播 暴风科技将乘法级增长</a></li>
+                    <li><a href="#">韩日外交紧张 三星或在日本弃用"Samsung"品牌名</a></li>
+                </ul>
+            </aside>
+           
+        </div>
+
+    </div>
+	<footer>
+        <p>©2015  青岛誉金电子科技有限公司  版权所有</p>
+    </footer>
+
+</body>
+</html>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>首页</title>
+<style>
+	body{
+		font-size:14px;
+		font-family:"Times New Roman", Times, serif;
+		margin:0;
+		padding:0;
+	}
+	
+	a{
+		color:#333;
+		text-decoration:none;
+	}
+	
+	h4{
+		color:#666666;
+	}
+	
+	/*头部相关*/
+	nav,header,footer,#mainContent{
+		clear:both;
+		width:1000px;
+		margin:0 auto;
+	}
+	
+	header div img{
+		float:left;
+		height:60px;
+	}
+	
+	#hdes{
+		float:left;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:30px;
+		color:black;
+		font-weight:bold;
+	}
+	
+	#hlogin{
+		margin-top:50px;
+		float:right;
+	}
+	
+	/*导航相关*/
+	nav{
+		clear:both;
+	}
+	
+	nav ul{
+		list-style:none;
+		background-color:#666666;
+		height:30px;
+		padding-left:0px;
+		color:#FFFFFF;
+	}
+	
+	nav ul li{
+		
+		width:80px;
+		float:left;
+		line-height:30px;
+		text-align:center;
+	}
+	
+	
+	nav ul li a{
+		color:#FFF;
+		text-decoration:none;
+	}
+	
+	/*左侧*/
+	#left{
+		width:700px;
+		float:left;
+	}
+		
+	#right{
+		width:300px;
+		float:left;
+	}
+	
+	#left section:nth-child(1) img{
+		width:680px;
+		height:300px;
+	}
+	
+	/*左侧下部*/
+	
+	#bottom{
+	}
+	
+	#bottom header{
+		padding:10px;
+	}
+	
+	#bottom figure{
+		width:640px;
+		height:150px;
+	}
+	
+	#bottom figure img{
+		clear:both;
+		width:200px;
+		height:150px;
+		float:left;
+		margin-left:-20px;
+		margin-right:10px;
+	}
+	
+	#bottom figure figcaption{
+		width:400px;
+		height:150px;
+		float:left;
+	}
+	
+	/*右侧*/
+	#right aside{
+		width:270px;
+		height:300px;
+		border:1px solid #999;
+		padding:15px;
+		margin-top:15px;
+		
+	}
+	
+	#right h1{
+		font-size:16px;
+		font-weight:bold;
+		margin-bottom:8px;
+	}
+	
+	#right form p{
+		font-size:12px;
+		margin-bottom:20px;
+		width:270px;
+		border-bottom:1px solid #b7ddf2;
+		padding-bottom:10px;
+	}
+	
+	#right aside:nth-child(1){
+		height:250px;
+	}
+	
+	#userInfo{
+		display:none;
+		height:20px;
+		border:1px solid #CCC;
+		border-radius:20px;
+		line-height:20px;
+		text-align:center;
+		font-size:14px;
+		background:#CCC;
+		font-family:楷体;
+	}
+
+	
+	
+	/*登录相关*/
+	
+	#login label{
+		display:block;
+		width:60px;
+		text-align:right;
+		float:left;
+		margin-top:10px;
+		height:30px;
+		padding-top:10px;
+		box-sizing:border-box;
+		font-size:12px;
+	}
+	
+	#login input{
+		width:200px;
+		float:left;
+		font-size:12px;
+		border:1px solid #aacfe4;
+		margin-top:10px;
+		height:30px;
+	}
+	
+	#login input[type=button]{
+		margin-left:60px;
+		width:125px;
+		height:31px;
+		background:#666666;
+		line-height:31px;
+		color:#FFFFFF;
+		font-size:12px;
+		font-weight:bold;
+	}
+	
+	
+	#login input:active{
+		outline:thin solid #aaa;
+	}
+	
+	/*热点新闻*/
+	#hotNews{
+		width:300px;
+		height:200px;
+	}
+		
+	#hotNews ul li{
+		height:35px;
+		padding-bottom:10px;
+		margin-left:-25px;
+		font-size:13px;
+	}
+	
+	footer{
+		text-align:center;
+	}
+	
+	
+	footer p{
+		clear:left;
+		background:#999999;
+		height:30px;
+		line-height:30px;
+	}
+
+</style>
+</head>
+
+<body>
+	<header>
+    	<div>
+        	<img src="style/images/logo.png" />
+            <p id="hdes">HTML5+CSS3</p>
+            <p id="hlogin">
+                <a href="index.html" target="_parent">登录</a>
+                <a href="register.html" target="_parent">注册</a>
+            </p>
+        </div>
+    </header>
+    <nav>
+    	<ul>
+        	<li><a href="index.html" target="_parent">首页</a></li>
+            <li><a  target="_parent">精彩视频</a></li>
+            <li><a  target="_parent">文章发布</a></li>
+        </ul>
+    </nav>
+    <div id="mainContent">
+    	<div id="left">
+        	<section>
+            	<img src="style/images/animate1.jpg" />
+            </section>
+            <section id="bottom">
+            	<header>最新精彩内容</header>
+                <figure>
+                	<a href="graffiWall.html"><img src="style/images/pic1.png"/></a>
+                    <figcaption>
+                    	<h3><a href="graffiWall.html">漂亮的涂鸦墙</a></h3>                          
+                        <p>CSS3所提供的动画功能，主要包括变形、转换和动画技术。变形是最基本的动画形式，它主要通过CSS控制元素样式属性值的变化来实现</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                	<a href="reflection.html"><img src="style/images/reflection.jpg"/></a>
+                    <figcaption>
+                    	<h3><a href="reflection.html">美丽的倒影</a></h3>                           
+                        <p>CSS3新增了CSS Reflections模块，运行CSS设计倒影效果，这种效果在以前只能通过图片软件进行设计，CSS Reflections简化了这种操作，允许用户只使用样式就可以实现倒影效果</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                	<a href="wonderfulLife.html"><img src="style/images/wflife.jpg"/></a>
+                    <figcaption>
+                    	<h3><a href="wonderfulLife.html">云计算-未来精彩生活</a></h3>                         
+                        <p>HTML5 video和audio两个元素的出现让HTML5的媒体应用多了选择，开发人员不必使用插件就能播放音频和视频</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                	<a href="scanBig.html"><img src="style/images/cover.jpg"/></a>
+                    <figcaption>
+                    	<h3><a href="scanBig.html">浏览大图</a></h3>                           
+                        <p>移动浏览大图哦</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                	<img src="style/images/reflection.jpg"/>
+                    <figcaption>
+                    	<h3><a href="reflection.html">教你制作音乐播放器</a></h3>                           
+                            <p>教你制作音乐播制作音乐播放器</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                	<img src="style/images/clock.jpg"/>
+                    <figcaption>
+                    	<h3><a href="reflection.html">绘制时钟</a></h3>                           
+                            <p>教你如何绘制时钟</p>
+                    </figcaption>
+                </figure>
+                
+            </section>          
+        </div>
+        <div id="right">
+        	<form>
+            <aside>
+            	<header>
+                	<h1>登录</h1>
+                    <p>请准确填写个人信息</p>
+                </header>
+                <div id="login">
+                	<label>用户名：</label>
+                    <input name="userName" id="userName" type="text"/>
+                    <label>密码：</label>
+                    <input name="password" id="password" type="password"/>             
+                    <input type="button" value="登录" onClick="Login()"/>
+                </div>
+            </aside>
+            </form>
+            <aside id="userInfo">
+            	<span></span>
+            	<a href="javascript:void(0)">退出</a>
+            </aside>
+
+            <aside id="hotNews">
+            	<header><h3>热点文章</h3></header>
+                <ul>
+                	<li><a href="#">网易高管解读第一季度财报：手游营收占比20%</a></li>
+                    <li><a href="#">昆山建成省内首家市场主体登记信息互联互通平台</a></li>
+                    <li><a href="#">中国电信发布“互联网 ”行动白皮书</a></li>
+                    <li><a href="#">“当日达”之后快递业又推“次晨达”</a></li>
+                    <li><a href="#">乐视再起诉暴风科技盗播 暴风科技将乘法级增长</a></li>
+                    <li><a href="#">韩日外交紧张 三星或在日本弃用"Samsung"品牌名</a></li>
+                </ul>
+            </aside>
+           
+        </div>
+
+    </div>
+	<footer>
+        <p>©2015  青岛誉金电子科技有限公司  版权所有</p>
+    </footer>
+
 </body>
 </html>
