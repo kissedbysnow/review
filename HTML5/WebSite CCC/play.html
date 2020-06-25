@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <title>视频播放</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        .paddtop {
+            padding-top: 10px;
+        }
+
+        #right div div header {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /*  *{
+              outline: solid #f00 1px !important;
+              background: #000 !important;
+              color: #fff !important;
+              }*/
+    </style>
+
+    <script src="script/jquery-1.11.3.js"></script>
+    <script>
+        $(function () {
+            //获取video对象
+            var video = document.getElementById("myVideo");
+            //获取source对象
+            var source = document.getElementsByTagName("source");
+            //绑定a标签点击事件
+            $("#right a").click(function () {
+                //获取a标签的dir属性，dir属性记录了视频的名字
+                var name = $(this).attr("dir");
+                var title = $(this).html();
+                //修改视频源
+                source[0].src = "resources/" + name;
+                $("#title").html(title);
+                //重新加载视频
+                video.load();
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+<!-- 页头部分 -->
+<div>
+    <iframe src="header.html" style="vertical-align: bottom;" width="100%" height="50" marginheight="0" marginwidth="0"
+            frameborder="0" scrolling="no"></iframe>
+</div>
+
+<!-- 主体 -->
+<div class="container paddtop">
+
+    <div class="row">
+        <div class="page-header">
+            <h1>Example page header <small id="title">Subtext for header</small></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9" id="left">
+            <video id="myVideo" controls autoplay width="100%">
+                <source src="resources/video1.mp4" type="video/mp4">
+            </video>
+        </div>
+
+
+        <div class="col-md-3" id="right">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/wflife.jpg" height="75px"/>
+                </div>
+                <div class="col-md-6">
+                    <header><a href="JavaScript:void(0)" dir="video1.mp4">视频1</a></header>
+                    <p>上传者：甘</p>
+                    <p id="hits">点击量：1,000</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/wflife.jpg" height="75px"/>
+                </div>
+                <div class="col-md-6">
+                    <header><a href="JavaScript:void(0)" dir="video1.mp4">视频2</a></header>
+                    <p>上传者：文</p>
+                    <p id="hits">点击量：1,000</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/wflife.jpg" height="75px"/>
+                </div>
+                <div class="col-md-6">
+                    <header><a href="JavaScript:void(0)" dir="video1.mp4">视频3</a></header>
+                    <p>上传者：崔</p>
+                    <p id="hits">点击量：1,000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<!-- 3.页脚部分-->
+<div>
+    <iframe src="footer.html" style="vertical-align: bottom;" width="100%" height="40" marginheight="0" marginwidth="0"
+            frameborder="0" scrolling="no"></iframe>
+</div>
+
+</body>
+</html>
