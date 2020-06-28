@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>乐享轻奢</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.ico">
+    <!-- CSS
+	============================================ -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!-- Slick CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/slick.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/cssanimation.min.css">
+    <!-- IonRange slider CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/ion.rangeSlider.min.css">
+    <!-- Vendor & Plugins CSS (Please remove the comment from below vendor.min.css & plugins.min.css for better website load performance and remove css files from avobe) -->
+    <!--
+		<link rel="stylesheet" href="assets/css/vendor.min.css">
+		<link rel="stylesheet" href="assets/css/plugins/plugins.min.css">
+		-->
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!--====================  preloader area ====================-->
+    <div class="preloader-activate preloader-active">
+        <div class="preloader-area-wrap">
+            <div class="spinner d-flex justify-content-center align-items-center h-100">
+                <div class="img-loader"></div>
+            </div>
+        </div>
+    </div>
+    <!--====================  End of preloader area  ====================-->
+    <div class="body-wrapper space-pt--70 space-pb--120">
+        <!--====================  头部模块 ====================-->
+        <header>
+            <div class="header-wrapper border-bottom">
+                <div class="container space-y--15">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <!-- logo -->
+                            <div class="header-logo">
+                                <a href="index.html">
+                                    <img src="assets/img/logo.png" class="img-fluid" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <!-- search -->
+                            <div class="header-search">
+                                <form>
+                                    <input type="text" id="header-search-input" placeholder="没事儿搜一下">
+                                    <img src="assets/img/icons/search.svg" class="injectable" alt="">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <!--  menu -->
+                            <button class="header-menu-trigger" id="header-menu-trigger">
+                                <img src="assets/img/icons/menu.svg" class="injectable" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- keywords -->
+            <div class="search-keyword-area space-xy--15 bg-color--grey2" id="search-keyword-box">
+                <div class="search-keyword-header space-mb--20">
+                    <h4 class="search-keyword-header__title">热点搜索</h4>
+                </div>
+                <ul class="search-keywords">
+                    <li><a href="search.html">轻奢潮鞋</a></li>
+                    <li><a href="search.html">热门背包</a></li>
+                    <li><a href="search.html">休闲背包</a></li>
+                    <li><a href="search.html">时尚单品</a></li>
+                    <li><a href="search.html">运动跑鞋</a></li>
+                    <li><a href="search.html">旅行背包</a></li>
+                </ul>
+            </div>
+        </header>
+        <!--====================  结束头部模块  ====================-->
+        <!--====================  菜单模块 ====================-->
+        <div class="offcanvas-menu" id="offcanvas-menu">
+            <div class="profile-card text-center">
+                <div class="profile-card__image space-mb--10">
+                    <img src="assets/img/profile.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="profile-card__content">
+                    <p class="name">枣院王二锤<span class="id">ID：201712130127</span></p>
+                </div>
+            </div>
+            <div class="offcanvas-navigation-wrapper space-mt--40">
+                <ul class="offcanvas-navigation">
+                    <li><span class="icon"><img src="assets/img/icons/profile.svg" class="injectable" alt=""></span><a href="login.html">登录 / 注册</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/profile-two.svg" class="injectable" alt=""></span><a href="profile.html">个人简介</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/notification.svg" class="injectable" alt=""></span><a href="notification.html">通知</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/product.svg" class="injectable" alt=""></span><a href="shop.html">所有商品</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/cart-two.svg" class="injectable" alt=""></span><a href="order.html">订单</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/cart-three.svg" class="injectable" alt=""></span><a href="cart.html">购物车</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/wishlist.svg" class="injectable" alt=""></span><a href="wishlist.html">收藏夹</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/gear-two.svg" class="injectable" alt=""></span><a href="edit-profile.html">设置</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/profile.svg" class="injectable" alt=""></span><a href="contact.html">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--====================  结束菜单  ====================-->
+        <!--====================  shop header ====================-->
+        <div class="shop-header bg-color--grey">
+            <div class="container space-y--15">
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <a href="index.html" class="back-link"> <i class="fa fa-angle-left"></i> 返回</a>
+                    </div>
+                    <div class="col-6">
+                        <h4 class="category-title text-center">背包</h4>
+                    </div>
+                    <div class="col-3 text-right">
+                        <button class="filter-trigger" id="filter-trigger">筛选</button>
+                    </div>
+                </div>
+            </div>
+            <div class="shop-filter space-pt--15 space-pb--50" id="shop-filter-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="shop-filter-block space-mb--25">
+                                <h4 class="shop-filter-block__title space-mb--5">价格</h4>
+                                <div class="shop-filter-block__content">
+                                    <div class="widget-price-range">
+                                        <input type="text" id="price-range-slider">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-filter-block space-mb--25">
+                                <h4 class="shop-filter-block__title space-mb--15">尺码</h4>
+                                <div class="shop-filter-block__content">
+                                    <ul class="shop-filter-block__size">
+                                        <li><button class="active">XS</button></li>
+                                        <li><button>S</button></li>
+                                        <li><button>M</button></li>
+                                        <li><button>L</button></li>
+                                        <li><button>XL</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="shop-filter-block space-mb--40">
+                                <h4 class="shop-filter-block__title space-mb--15">品牌</h4>
+                                <div class="shop-filter-block__content">
+                                    <ul class="shop-filter-block__brand">
+                                        <li><button>Puma</button></li>
+                                        <li><button class="active">Nike</button></li>
+                                        <li><button>Air Jordan</button></li>
+                                        <li><button>Champion</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="shop-filter-block">
+                                <button class="shop-filter-btn apply-btn">确定</button>
+                                <button class="shop-filter-btn cancel-btn" id="shop-filter-slideup">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====================  End of shop header  ====================-->
+        <!--====================  products area ====================-->
+        <div class="shop-products-area">
+            <!-- shop grid products -->
+            <div class="shop-grid-products-wrapper space-mt--30 space-mb-m--20">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="grid-product space-mb--20">
+                                <div class="grid-product__image">
+                                    <a href="shop-product.html">
+                                        <img src="assets/img/bag/p1.png" class="img-fluid" alt="">
+                                    </a>
+                                    <button class="icon"><img src="assets/img/icons/heart-dark.svg" class="injectable" alt=""></button>
+                                </div>
+                                <div class="grid-product__content">
+                                    <h3 class="title"><a href="shop-product.html">时尚背包</a></h3>
+                                    <span class="category">背包</span>
+                                    <div class="price">
+                                        <span class="main-price">$460</span>
+                                        <span class="discounted-price">$320</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="grid-product space-mb--20">
+                                <div class="grid-product__image">
+                                    <a href="shop-product.html">
+                                        <img src="assets/img/bag/p2.png" class="img-fluid" alt="">
+                                    </a>
+                                    <button class="icon"><img src="assets/img/icons/heart-dark.svg" class="injectable" alt=""></button>
+                                </div>
+                                <div class="grid-product__content">
+                                    <h3 class="title"><a href="shop-product.html">旅行包</a></h3>
+                                    <span class="category">背包</span>
+                                    <div class="price">
+                                        <span class="main-price">$400</span>
+                                        <span class="discounted-price">$300</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="grid-product space-mb--20">
+                                <div class="grid-product__image">
+                                    <a href="shop-product.html">
+                                        <img src="assets/img/bag/p3.png" class="img-fluid" alt="">
+                                    </a>
+                                    <button class="icon"><img src="assets/img/icons/heart-dark.svg" class="injectable" alt=""></button>
+                                </div>
+                                <div class="grid-product__content">
+                                    <h3 class="title"><a href="shop-product.html">户外手包</a></h3>
+                                    <span class="category">背包</span>
+                                    <div class="price">
+                                        <span class="main-price">$50</span>
+                                        <span class="discounted-price">$30</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="grid-product space-mb--20">
+                                <div class="grid-product__image">
+                                    <a href="shop-product.html">
+                                        <img src="assets/img/bag/p4.png" class="img-fluid" alt="">
+                                    </a>
+                                    <button class="icon"><img src="assets/img/icons/heart-dark.svg" class="injectable" alt=""></button>
+                                </div>
+                                <div class="grid-product__content">
+                                    <h3 class="title"><a href="shop-product.html">轻奢潮包</a></h3>
+                                    <span class="category">背包</span>
+                                    <div class="price">
+                                        <span class="main-price">$1500</span>
+                                        <span class="discounted-price">$1499</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!--====================  End of products area  ====================-->
+         <!--====================  底部分页模块 ====================-->
+         <footer>
+            <div class="footer-nav-wrapper">
+                <a href="index.html" class="footer-nav-single">
+                    <div class="menu-wrapper">
+                        <img src="assets/img/icons/home.svg" class="injectable" alt="">
+                        <span>首页</span>
+                    </div>
+                </a>
+                <a href="chat.html" class="footer-nav-single">
+                    <div class="menu-wrapper">
+                        <img src="assets/img/icons/chat.svg" class="injectable" alt="">
+                        <span>信息</span>
+                    </div>
+                </a>
+                <a href="cart.html" class="footer-nav-single">
+                    <div class="menu-wrapper">
+                        <img src="assets/img/icons/cart.svg" class="injectable" alt="">
+                        <span>购物车</span>
+                    </div>
+                </a>
+                <a href="profile.html" class="footer-nav-single">
+                    <div class="menu-wrapper">
+                        <img src="assets/img/icons/profile.svg" class="injectable" alt="">
+                        <span>简介</span>
+                    </div>
+                </a>
+            </div>
+        </footer>
+        <!--====================  结束底部分页  ====================-->
+    </div>
+    <!-- JS
+    ============================================ -->
+    <!-- Modernizer JS -->
+    <script src="assets/js/modernizr-2.8.3.min.js"></script>
+    <!-- jQuery JS -->
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- IonRanger JS -->
+    <script src="assets/js/plugins/ion.rangeSlider.min.js"></script>
+    <!-- SVG inject JS -->
+    <script src="assets/js/plugins/svg-inject.min.js"></script>
+    <!-- Slick slider JS -->
+    <script src="assets/js/plugins/slick.min.js"></script>
+    <!-- Plugins JS (Please remove the comment from below plugins.min.js for better website load performance and remove plugin js files from avobe) -->
+    <!--
+  <script src="assets/js/plugins/plugins.min.js"></script>
+-->
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

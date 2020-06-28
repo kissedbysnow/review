@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>乐享轻奢</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.ico">
+    <!-- CSS
+	============================================ -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!-- Slick CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/slick.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/cssanimation.min.css">
+    <!-- IonRange slider CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/ion.rangeSlider.min.css">
+    <!-- Vendor & Plugins CSS (Please remove the comment from below vendor.min.css & plugins.min.css for better website load performance and remove css files from avobe) -->
+    <!--
+		<link rel="stylesheet" href="assets/css/vendor.min.css">
+		<link rel="stylesheet" href="assets/css/plugins/plugins.min.css">
+		-->
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!--====================  preloader area ====================-->
+    <div class="preloader-activate preloader-active">
+        <div class="preloader-area-wrap">
+            <div class="spinner d-flex justify-content-center align-items-center h-100">
+                <div class="img-loader"></div>
+            </div>
+        </div>
+    </div>
+    <!--====================  End of preloader area  ====================-->
+    <div class="body-wrapper space-pt--70 space-pb--120">
+        <!--====================  头部模块 ====================-->
+        <header>
+            <div class="header-wrapper border-bottom">
+                <div class="container space-y--15">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <!-- logo -->
+                            <div class="header-logo">
+                                <a href="index.html">
+                                    <img src="assets/img/logo.png" class="img-fluid" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <!-- search -->
+                            <div class="header-search">
+                                <form>
+                                    <input type="text" id="header-search-input" placeholder="没事儿搜一下">
+                                    <img src="assets/img/icons/search.svg" class="injectable" alt="">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <!--  menu -->
+                            <button class="header-menu-trigger" id="header-menu-trigger">
+                                <img src="assets/img/icons/menu.svg" class="injectable" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- keywords -->
+            <div class="search-keyword-area space-xy--15 bg-color--grey2" id="search-keyword-box">
+                <div class="search-keyword-header space-mb--20">
+                    <h4 class="search-keyword-header__title">热点搜索</h4>
+                </div>
+                <ul class="search-keywords">
+                    <li><a href="search.html">轻奢潮鞋</a></li>
+                    <li><a href="search.html">热门背包</a></li>
+                    <li><a href="search.html">休闲背包</a></li>
+                    <li><a href="search.html">时尚单品</a></li>
+                    <li><a href="search.html">运动跑鞋</a></li>
+                    <li><a href="search.html">旅行背包</a></li>
+                </ul>
+            </div>
+        </header>
+        <!--====================  结束头部模块  ====================-->
+        <!--====================  菜单模块 ====================-->
+        <div class="offcanvas-menu" id="offcanvas-menu">
+            <div class="profile-card text-center">
+                <div class="profile-card__image space-mb--10">
+                    <img src="assets/img/profile.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="profile-card__content">
+                    <p class="name">枣院王二锤<span class="id">ID：201712130127</span></p>
+                </div>
+            </div>
+            <div class="offcanvas-navigation-wrapper space-mt--40">
+                <ul class="offcanvas-navigation">
+                    <li><span class="icon"><img src="assets/img/icons/profile.svg" class="injectable" alt=""></span><a href="login.html">登录 / 注册</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/profile-two.svg" class="injectable" alt=""></span><a href="profile.html">个人简介</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/notification.svg" class="injectable" alt=""></span><a href="notification.html">通知</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/product.svg" class="injectable" alt=""></span><a href="shop.html">所有商品</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/cart-two.svg" class="injectable" alt=""></span><a href="order.html">订单</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/cart-three.svg" class="injectable" alt=""></span><a href="cart.html">购物车</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/wishlist.svg" class="injectable" alt=""></span><a href="wishlist.html">收藏夹</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/gear-two.svg" class="injectable" alt=""></span><a href="edit-profile.html">设置</a></li>
+                    <li><span class="icon"><img src="assets/img/icons/profile.svg" class="injectable" alt=""></span><a href="contact.html">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--====================  结束菜单  ====================-->
+        <!--====================  breadcrumb area ====================-->
+        <div class="breadcrumb-area bg-color--grey space-y--15">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <a href="index.html" class="back-link"> <i class="fa fa-angle-left"></i> 返回</a>
+                    </div>
+                    <div class="col-6">
+                        <h4 class="page-title text-center">信息</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====================  End of breadcrumb area  ====================-->
+        <!--====================  chat area ====================-->
+        <div class="chat-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="chat-wrap">
+                            <ul class="chat-list">
+                                <li>
+                                    <div class="chat">
+                                        <div class="body">
+                                            <div class="image"><img src="assets/img/comment/comment-1.jpg" alt=""></div>
+                                            <div class="content">
+                                                <div class="head">
+                                                    <h5>王大柱</h5>
+                                                    <span>今天下午6：30</span>
+                                                </div>
+                                                <p>今天的我超级好看</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="chat">
+                                        <div class="body">
+                                            <div class="image"><img src="assets/img/comment/comment-2.jpg" alt=""></div>
+                                            <div class="content">
+                                                <div class="head">
+                                                    <h5>我</h5>
+                                                    <span>今天下午6：31</span>
+                                                </div>
+                                                <p>哪天你都很好看，（づ￣3￣）づ╭❤～</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="chat">
+                                        <div class="body">
+                                            <div class="image"><img src="assets/img/comment/comment-1.jpg" alt=""></div>
+                                            <div class="content">
+                                                <div class="head">
+                                                    <h5>AJ老板</h5>
+                                                    <span>昨天下午11：27</span>
+                                                </div>
+                                                <p>亲亲不好意思呢，我们的莆田工厂被警察封了，所以暂时没货了喔！</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="chat">
+                                        <div class="body">
+                                            <div class="image"><img src="assets/img/comment/comment-2.jpg" alt=""></div>
+                                            <div class="content">
+                                                <div class="head">
+                                                    <h5>我</h5>
+                                                    <span>昨天下午11：35</span>
+                                                </div>
+                                                <p>🙂</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-submission">
+                <form action="#">
+                    <input type="text" placeholder="打点字儿">
+                    <div class="buttons">
+                        <label class="file-upload button button-box button-round button-primary" for="chat-file-upload">
+                            <input type="file" id="chat-file-upload" multiple>
+                            <i class="fa fa-paperclip"></i>
+                        </label>
+                        <button class="submit"><i class="fa fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--====================  End of chat area  ====================-->
+        <!--====================  底部分页模块 ====================-->
+        <footer>
+            <div class="footer-nav-wrapper">
+                <a href="index.html" class="footer-nav-single">
+                    <div class="menu-wrapper">
+                        <img src="assets/img/icons/home.svg" class="injectable" alt="">
+                        <span>首页</span>
+                    </div>
+                </a>
+                <a href="chat.html" class="footer-nav-single">
+                    <div class="menu-wrapper">
+                        <img src="assets/img/icons/chat.svg" class="injectable" alt="">
+                        <span>信息</span>
+                    </div>
+                </a>
+                <a href="cart.html" class="footer-nav-single">
+                    <div class="menu-wrapper">
+                        <img src="assets/img/icons/cart.svg" class="injectable" alt="">
+                        <span>购物车</span>
+                    </div>
+                </a>
+                <a href="profile.html" class="footer-nav-single">
+                    <div class="menu-wrapper">
+                        <img src="assets/img/icons/profile.svg" class="injectable" alt="">
+                        <span>简介</span>
+                    </div>
+                </a>
+            </div>
+        </footer>
+        <!--====================  结束底部分页  ====================-->
+    </div>
+    <!-- JS
+    ============================================ -->
+    <!-- Modernizer JS -->
+    <script src="assets/js/modernizr-2.8.3.min.js"></script>
+    <!-- jQuery JS -->
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- IonRanger JS -->
+    <script src="assets/js/plugins/ion.rangeSlider.min.js"></script>
+    <!-- SVG inject JS -->
+    <script src="assets/js/plugins/svg-inject.min.js"></script>
+    <!-- Slick slider JS -->
+    <script src="assets/js/plugins/slick.min.js"></script>
+    <!-- Plugins JS (Please remove the comment from below plugins.min.js for better website load performance and remove plugin js files from avobe) -->
+    <!--
+  <script src="assets/js/plugins/plugins.min.js"></script>
+-->
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
