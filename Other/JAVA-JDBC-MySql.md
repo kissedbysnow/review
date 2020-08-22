@@ -2,7 +2,6 @@
 
 ```java
 public class test {
-
 	public static void main(String[] args) throws Exception {
 		String sql = "INSERT INTO able VALUES (null,null,?)";
 		Connection conn = JdbcUtils.getConnection();
@@ -20,7 +19,6 @@ public class test {
 
 ```java
 public class test {
-
 	public static void main(String[] args) throws Exception {
 		String sql = "INSERT INTO able VALUES (null,null,?)";
 		Connection conn = JdbcUtils.getConnection();
