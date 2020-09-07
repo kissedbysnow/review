@@ -96,12 +96,13 @@
                 <input type="text" name="description" value="${condition.description[0]}" class="form-control" id="description">
             </div>
             <button type="submit" class="btn btn-primary">Query</button>
+            <button type="button" class="btn btn-default" onclick="javascript:window.location.href='${pageContext.request.contextPath}/readByPageServlet'">Reset</button>
         </form>
     </div>
 
     <div style="float:right;margin: 5px;">
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/create.jsp">Create</a>
-        <a class="btn btn-primary" href="javascript:void(0);" id="deleteSelected">Delete the selected</a>
+        <a class="btn btn-danger" href="javascript:void(0);" id="deleteSelected">Delete the selected</a>
     </div>
 
     <form id="form" action="${pageContext.request.contextPath}/deleteSelectedServlet" method="post">

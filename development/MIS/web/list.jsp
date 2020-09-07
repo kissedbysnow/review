@@ -86,13 +86,13 @@
                 <label for="exampleInputEmail">邮箱</label>
                 <input type="text" name="email" value="${condition.email[0]}" class="form-control" id="exampleInputEmail">
             </div>
-            <button type="submit" class="btn btn-default">查询</button>
+            <button type="submit" class="btn btn-primary">Query</button>
         </form>
     </div>
 
     <div style="float:right;margin: 5px;">
-        <a class="btn btn-primary" href="${pageContext.request.contextPath}/add.jsp">ADD</a>
-        <a class="btn btn-primary" href="javascript:void(0);" id="delSelected">Delete the selected</a>
+        <a class="btn btn-primary" href="${pageContext.request.contextPath}/add.jsp">Add</a>
+        <a class="btn btn-danger" href="javascript:void(0);" id="delSelected">Delete the selected</a>
     </div>
 
     <form id="form" action="${pageContext.request.contextPath}/delSelectedServlet" method="post">
@@ -120,9 +120,9 @@
                     <td>${user.address}</td>
                     <td>${user.qq}</td>
                     <td>${user.email}</td>
-                    <td><a class="btn btn-default btn-sm"
+                    <td><a class="btn btn-warning btn-sm"
                            href="${pageContext.request.contextPath}/findUserServlet?id=${user.id}">Update</a> &nbsp;
-                        <a class="btn btn-default btn-sm" href="javascript:deleteUser(${user.id});">Delete</a>
+                        <a class="btn btn-danger btn-sm" href="javascript:deleteUser(${user.id});">Delete</a>
                     </td>
                 </tr>
             </c:forEach>

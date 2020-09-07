@@ -16,6 +16,21 @@
   <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/login.js"></script>
   <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+  <style>
+    html,body{
+      width: 100%;
+      height: 100%;
+      margin: 0;              /* 边缘 边界 */
+      padding: 0;             /* 内边距 */
+    }
+    body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+
 </head>
 <body>
   <div class="container">
