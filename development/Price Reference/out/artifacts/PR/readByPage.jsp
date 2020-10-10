@@ -173,10 +173,11 @@
         <div style="float:left;">
             <nav aria-label="Page navigation">
                 <ul class="pagination">
+
                     <c:if test="${page.currentPage == 1}">
-                    <li class="disabled">
-                        </c:if>
-                        <c:if test="${page.currentPage != 1}">
+                        <li class="disabled">
+                            </c:if>
+                    <c:if test="${page.currentPage != 1}">
                     <li>
                         </c:if>
                         <a href="${pageContext.request.contextPath}/readByPageServlet?currentPage=${page.currentPage - 1}&rows=${page.rows}&classify=${condition.classify[0]}&brand=${condition.brand[0]}&version=${condition.version[0]}&description=${condition.description[0]}"

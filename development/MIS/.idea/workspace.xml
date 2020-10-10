@@ -7,34 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5b1c315-f314-4efc-a92d-42377f8dc02e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../MIS - 副本/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MIS - 副本/MIS.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_8_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_10_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/c3p0_0_9_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CET/Essay.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../CET/Essay.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HTML5/软件1703-于子源-20170300497/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../HTML5/软件1703-于子源-20170300497/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HTML5/软件1703-于子源-20170300497/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../HTML5/软件1703-于子源-20170300497/history.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HTML5/软件1703-于子源-20170300497/index_back1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bootstrap JSP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bootstrap JSP/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIS+Login/web/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../MIS+Login/web/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MIS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/c3p0-0.9.1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/commons-beanutils-1.8.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/commons-logging-1.1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/druid-1.0.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/javax.servlet.jsp.jstl.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/jstl-impl.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.18-bin.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/spring-beans-4.2.4.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/spring-core-4.2.4.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/spring-jdbc-4.2.4.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/spring-tx-4.2.4.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Price Reference/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Price Reference/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Price Reference/out/artifacts/PR/WEB-INF/classes/META-INF/PR.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/../Price Reference/out/artifacts/PR/WEB-INF/classes/META-INF/PR.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Price Reference/out/artifacts/PR/WEB-INF/classes/main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Price Reference/out/artifacts/PR/readByPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Price Reference/out/artifacts/PR/readByPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Price Reference/src/test/main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Price Reference/target/classes/main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Price Reference/web/readByPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Price Reference/web/readByPage.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +74,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -293,6 +281,15 @@
       <workItem from="1599469172686" duration="66000" />
       <workItem from="1599476049569" duration="2293000" />
       <workItem from="1599481421547" duration="987000" />
+      <workItem from="1599648716000" duration="10000" />
+      <workItem from="1599652111748" duration="575000" />
+      <workItem from="1599694666329" duration="6356000" />
+      <workItem from="1600066961568" duration="2110000" />
+      <workItem from="1600071171365" duration="58000" />
+      <workItem from="1600303664830" duration="1323000" />
+      <workItem from="1600347740344" duration="1090000" />
+      <workItem from="1601254488603" duration="337000" />
+      <workItem from="1601273185877" duration="9790000" />
     </task>
     <servers />
   </component>

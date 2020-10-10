@@ -5,28 +5,15 @@
       <artifact name="Login:war exploded" />
     </artifacts-to-build>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cc79bdfb-b13c-4d3c-aff7-d336c0b4a284" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MIS/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MIS/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MIS/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__com_alibaba_druid_1_1_14.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__com_mchange_c3p0_0_9_5_pre10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__com_mchange_mchange_commons_java_0_2_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_8_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_25.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__org_aspectj_aspectjweaver_unknown.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__org_springframework_spring_beans_4_3_10_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__org_springframework_spring_core_4_3_10_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_10_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS/.idea/libraries/Maven__org_springframework_spring_tx_4_3_10_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CET/Essay.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../CET/Essay.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../HTML5/软件1703-于子源-20170300497/index_back1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIS+Login/web/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../MIS+Login/web/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MIS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MIS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS/MIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../MIS/MIS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Price Reference/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Price Reference/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,6 +86,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -114,7 +102,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -198,6 +186,7 @@
       </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -218,6 +207,7 @@
       <workItem from="1587811936010" duration="20000" />
       <workItem from="1587822950466" duration="1574000" />
       <workItem from="1599469287217" duration="1758000" />
+      <workItem from="1600153648476" duration="336000" />
     </task>
     <servers />
   </component>
@@ -231,7 +221,7 @@
     </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="249" y="6" key="#Project_Structure" timestamp="1599475832157">
@@ -286,6 +276,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1024" height="293" key="GridCell.Tab.2.right/0.0.1536.864@0.0.1536.864" timestamp="1599475970043" />
+    <state x="270" y="76" key="SettingsEditor" timestamp="1600153985504">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="270" y="76" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1600153985504" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
