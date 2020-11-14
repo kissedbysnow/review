@@ -7,20 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5b1c315-f314-4efc-a92d-42377f8dc02e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../CET/Essay.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../CET/Essay.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../HTML5/软件1703-于子源-20170300497/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../HTML5/软件1703-于子源-20170300497/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../HTML5/软件1703-于子源-20170300497/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../HTML5/软件1703-于子源-20170300497/history.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../HTML5/软件1703-于子源-20170300497/index_back1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bootstrap JSP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Bootstrap JSP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MIS+Login/web/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../MIS+Login/web/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MIS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MIS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/PR/WEB-INF/classes/META-INF/PR.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/PR/WEB-INF/classes/META-INF/PR.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/PR/WEB-INF/classes/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/PR/readByPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/PR/readByPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/readByPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/readByPage.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -347,6 +334,7 @@
       <workItem from="1601209621152" duration="32000" />
       <workItem from="1601253589289" duration="1512000" />
       <workItem from="1601263106319" duration="629000" />
+      <workItem from="1602393327364" duration="1012000" />
     </task>
     <servers />
   </component>
