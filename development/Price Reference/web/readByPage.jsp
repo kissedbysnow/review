@@ -74,6 +74,9 @@
 
             <button type="submit" class="btn btn-primary">Query</button>
             <button type="button" class="btn btn-default" onclick="javascript:window.location.href='${pageContext.request.contextPath}/readServlet'">Reset</button>
+            <button type="button" class="btn btn-default">Weight/Capacity:单位重量，不是总重</button>
+            <button type="button" class="btn btn-default">CP:CostPerformance,性价比</button>
+            <button type="button" class="btn btn-default">UP:单价</button>
         </form>
     </div>
 

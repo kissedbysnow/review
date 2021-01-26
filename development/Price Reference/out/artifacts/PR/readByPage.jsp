@@ -74,6 +74,9 @@
 
             <button type="submit" class="btn btn-primary">Query</button>
             <button type="button" class="btn btn-default" onclick="javascript:window.location.href='${pageContext.request.contextPath}/readServlet'">Reset</button>
+            <button type="button" class="btn btn-default">Weight/Capacity:单位重量，不是总重</button>
+            <button type="button" class="btn btn-default">CP:CostPerformance,性价比</button>
+            <button type="button" class="btn btn-default">UP:单价</button>
         </form>
     </div>
 
@@ -178,8 +181,9 @@
                         <li class="disabled">
                             </c:if>
                     <c:if test="${page.currentPage != 1}">
-                    <li>
-                        </c:if>
+                        <li>
+                            </c:if>
+
                         <a href="${pageContext.request.contextPath}/readByPageServlet?currentPage=${page.currentPage - 1}&rows=${page.rows}&classify=${condition.classify[0]}&brand=${condition.brand[0]}&version=${condition.version[0]}&description=${condition.description[0]}"
                            aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
@@ -188,8 +192,8 @@
 
                     <c:forEach begin="1" end="${page.totalPage}" var="i">
                         <c:if test="${page.currentPage == i}">
-                            <li class="active"><a
-                                    href="${pageContext.request.contextPath}/readByPageServlet?currentPage=${i}&rows=${page.rows}&classify=${condition.classify[0]}&brand=${condition.brand[0]}&version=${condition.version[0]}&description=${condition.description[0]}">${i}</a>
+                            <li class="active">
+                                <a href="${pageContext.request.contextPath}/readByPageServlet?currentPage=${i}&rows=${page.rows}&classify=${condition.classify[0]}&brand=${condition.brand[0]}&version=${condition.version[0]}&description=${condition.description[0]}">${i}</a>
                             </li>
                         </c:if>
                         <c:if test="${page.currentPage != i}">
@@ -200,11 +204,12 @@
                     </c:forEach>
 
                     <c:if test="${page.currentPage != page.totalPage}">
-                    <li>
-                        </c:if>
-                        <c:if test="${page.currentPage == page.totalPage}">
-                    <li class="disabled">
-                        </c:if>
+                        <li>
+                            </c:if>
+                    <c:if test="${page.currentPage == page.totalPage}">
+                        <li class="disabled">
+                            </c:if>
+
                         <a href="${pageContext.request.contextPath}/readByPageServlet?currentPage=${page.currentPage+1}&rows=${page.rows}&classify=${condition.classify[0]}&brand=${condition.brand[0]}&version=${condition.version[0]}&description=${condition.description[0]}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
@@ -216,6 +221,7 @@
                 </ul>
             </nav>
         </div>
+
         <div style="float:right;">
             <select onchange="javascript:location.href=this.value;">
                 <c:forEach begin="10" end="25" step="3" var="i">
@@ -233,6 +239,7 @@
                 </c:forEach>
             </select>
         </div>
+
     </div>
 </div>
 </body>
